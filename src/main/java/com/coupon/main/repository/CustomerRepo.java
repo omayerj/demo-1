@@ -8,4 +8,6 @@ import com.coupon.main.bean.Customer;
 public interface CustomerRepo extends CrudRepository<Customer, Integer> {
 
 	Customer findByid(long id);
+	long  deleteByid(long id);
+	
 }
