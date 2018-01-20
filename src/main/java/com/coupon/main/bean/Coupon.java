@@ -2,12 +2,14 @@ package com.coupon.main.bean;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -39,9 +41,9 @@ public class Coupon implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "COMPANY_id")
 	private Company company;
-	@ManyToOne
-	@JoinColumn(name = "CUSTOMER_id")
-	private Customer customer;
+	
+	@ManyToMany(mappedBy ="coupons")
+	private Set<Customer> customers;
 
 	public Company getCompany() {
 		return company;

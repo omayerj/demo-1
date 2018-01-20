@@ -29,11 +29,6 @@ public class Company implements Serializable {
 	 @OneToMany(mappedBy = "company", fetch = FetchType.EAGER, cascade =
 	 CascadeType.ALL)
 	 private Set<Coupon> coupons;
-//	@ManyToMany
-//	@JoinTable(name = "COM_", joinColumns = @JoinColumn(name = "EMP_ID", referencedColumnName = "ID"),
-//	inverseJoinColumns = @JoinColumn(name = "PROJ_ID", referencedColumnName = "ID"))
-//	private List<Project> projects;
-
 	public Company() {
 
 	}

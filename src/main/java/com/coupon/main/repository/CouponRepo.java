@@ -10,5 +10,6 @@ import com.coupon.main.bean.Coupon;
 public interface CouponRepo extends CrudRepository<Coupon, Integer> {
 	@Query("SELECT t FROM Coupon t where t.id = :id") 
 	Coupon findbyId(@Param("id")long id);
+	Coupon findBytitle(String title);
  
 }
