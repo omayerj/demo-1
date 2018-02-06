@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -31,8 +32,10 @@ public class Customer implements Serializable {
 	@Column(nullable = false)
 	private String password;
 
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "CUSTOMER_Coupon", joinColumns = @JoinColumn(name = "CUSTOMER_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "Coupon_id", referencedColumnName = "id"))
+	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "CUSTOMER_Coupon", 
+		joinColumns = @JoinColumn(name = "customer_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "coupon_id", referencedColumnName = "id"))
 	private Set<Coupon> coupons;
 
 	public Set<Coupon> getCoupons() {
@@ -85,25 +88,8 @@ public class Customer implements Serializable {
 		this.password = password;
 	}
 
-	/*
-	 * @Override public String toString() { String info = ""; try { JSONObject
-	 * jsonInfo = new JSONObject(); jsonInfo.put("id",this.id);
-	 * jsonInfo.put("password",this.password);
-	 * jsonInfo.put("custName",this.custName); // JSONArray couponArray = new
-	 * JSONArray(); if(this.coupons != null ){ if(coupons.size() > 0){
-	 * 
-	 * System.out.println("sdfsgdfgfffgd"); // this.coupons.forEach(coupon->{ //
-	 * JSONObject subJson = new JSONObject(); // subJson.put("name",
-	 * coupon.getId()); // subJson.put("Title", coupon.getTitle()); //
-	 * subJson.put("EndDate", coupon.getEndDate()); // couponArray.put(subJson);
-	 * // }); } } // jsonInfo.put("coupons", couponArray); info =
-	 * jsonInfo.toString(); return info; } catch (JSONException e) { // TODO
-	 * Auto-generated catch block e.printStackTrace(); } return info; }
-	 */
-
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", custName=" + custName + ", password=" + password + "]";
-
 	}
 }

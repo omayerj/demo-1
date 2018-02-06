@@ -4,11 +4,14 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -42,8 +45,19 @@ public class Coupon implements Serializable {
 	@JoinColumn(name = "COMPANY_id")
 	private Company company;
 	
-	@ManyToMany(mappedBy ="coupons")
+	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "CUSTOMER_Coupon", 
+		joinColumns = @JoinColumn(name = "coupon_id", referencedColumnName = "id"), 
+				inverseJoinColumns = @JoinColumn(name = "customer_id", referencedColumnName = "id"))
 	private Set<Customer> customers;
+
+	public Set<Customer> getCustomers() {
+		return customers;
+	}
+
+	public void setCustomers(Set<Customer> customers) {
+		this.customers = customers;
+	}
 
 	public Company getCompany() {
 		return company;
