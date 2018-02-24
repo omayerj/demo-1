@@ -13,11 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import net.minidev.json.JSONArray;
-
 @Entity(name = "CUSTOMER")
 public class Customer implements Serializable {
 	/**

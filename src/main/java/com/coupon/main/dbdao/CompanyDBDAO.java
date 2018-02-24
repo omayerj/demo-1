@@ -3,13 +3,18 @@ package com.coupon.main.dbdao;
 import java.util.Collection;
 import java.util.logging.Logger;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.coupon.main.bean.Company;
 import com.coupon.main.bean.Coupon;
 import com.coupon.main.dao.CompanyDAO;
-import com.coupon.main.exception.SystemExceptionCoupoun;
-
+import com.coupon.main.repository.CompanyRepo;
+@Component
 public class CompanyDBDAO implements CompanyDAO {
 	Logger logger = Logger.getLogger("CompanyDBDAO");
+	@Autowired
+	private CompanyRepo companyRepo;
 
 	@Override
 	public Collection<Coupon> getCoupons() {
@@ -17,7 +22,6 @@ public class CompanyDBDAO implements CompanyDAO {
 		// conn.prepareStatement(JoinTableSQLQueries.GET_ALL_COUPON_BY_COMPANY);
 
 		return null;
-
 
 	}
 
@@ -44,11 +48,14 @@ public class CompanyDBDAO implements CompanyDAO {
 
 	}
 
-	public boolean login(String name, String password) throws SystemExceptionCoupoun {
-
-		// conn.prepareStatement(CompanySQLQueries.LOGIN_BY_COMPANIES);
-
-		return false;
+	public boolean login(String name, String password) {
+		System.out.println("userName : "+ name +" password :"+ password );
+		System.out.println("companyRepo : "+companyRepo);
+		Company loginCompany = companyRepo.login(name, password);
+		System.out.println("loginCompany : "+loginCompany);
+		if (loginCompany == null)
+			return false;
+		return true;
 	}
 
 	@Override

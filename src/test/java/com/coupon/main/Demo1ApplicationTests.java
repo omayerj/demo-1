@@ -1,5 +1,9 @@
 package com.coupon.main;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.sql.Date;
 import java.util.Calendar;
 import java.util.Collection;
@@ -15,6 +19,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.coupon.main.bean.Company;
 import com.coupon.main.bean.Coupon;
 import com.coupon.main.bean.Customer;
+import com.coupon.main.dbdao.CompanyDBDAO;
+import com.coupon.main.facad.CompanyFacade;
+import com.coupon.main.facad.CouponClientFacade;
+import com.coupon.main.facad.CouponSystem;
 import com.coupon.main.repository.CompanyRepo;
 import com.coupon.main.repository.CouponRepo;
 import com.coupon.main.repository.CustomerRepo;
@@ -124,5 +132,67 @@ System.out.println("START");
 		
 
 	}
+	
+	
+	@Test
+	public void logInTest() {
+		System.out.println("logInTest :: start");
+		Company loginPass= companyRepo.login("asddsa", "123");
+		System.out.println("Company loginPass :"+loginPass);
+		Company loginFaild= companyRepo.login("asddsa", "1230");
+		System.out.println("Company loginFaild :"+loginFaild);
+		Customer loginPassCus= customerRepo.login("newCustomer2", "1234");
+		System.out.println("loginPassCus :"+loginPassCus);
+		Customer loginFaildCus= customerRepo.login("newCustomer2", "12345");
+		System.out.println("loginFaildCus :"+loginFaildCus);
+		assertNotNull(loginPass);
+		assertNotNull(loginPassCus);
+		assertNull(loginFaildCus);
+		assertNull(loginFaild);
+		System.out.println("logInTest :: End");
 
+	}
+	@Autowired
+	private CouponSystem couponSystem;
+	@Test
+	public void CouponSystemTest() {
+		System.out.println("CouponSystemTest :: start");
+		
+		System.out.println("couponSystem :"+couponSystem);
+		CouponClientFacade facade = couponSystem.login("asddsa", "123", "company");
+		System.out.println("facade :"+facade);
+		assertNotNull(facade);
+		System.out.println("CouponSystemTest :: End");
+
+	}
+	
+	@Autowired
+	private CompanyDBDAO companyDBDAO;
+	@Test
+	public void CompanyDAOTest() {
+		System.out.println("CompanyDBDAOTest :: start");
+		
+		System.out.println("companyDBDAO :"+companyDBDAO);
+		boolean cheak= companyDBDAO.login("asddsa","123");
+		System.out.println("cheak :"+cheak);
+		System.out.println("CompanyDBDAOTest :: End");
+		assertTrue(cheak);
+
+	}
+	
+	@Autowired
+	private CompanyFacade companyFacade;
+	@Test
+	public void companyFacadeTest() {
+		System.out.println("companyFacadeTest :: start");
+		
+		System.out.println("companyDBDAO :"+companyDBDAO);
+		CouponClientFacade couponClientFacade= companyFacade.login("asddsa","123");
+		System.out.println("couponClientFacade :"+couponClientFacade);
+		System.out.println("companyFacadeTest :: End");
+		assertNotNull(couponClientFacade);
+
+	}
+	
+	
 }
