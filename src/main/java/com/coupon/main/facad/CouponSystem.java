@@ -4,17 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 @Component
 public class CouponSystem {
-//	private static CouponSystem INSTANCE;
 	@Autowired
 	private CompanyFacade compFacade;
-//	public synchronized static CouponSystem getInstance() {
-//		System.out.println("getInstance");
-//
-//		if (INSTANCE == null) {
-//			INSTANCE = new CouponSystem();
-//		}
-//		return INSTANCE;
-//	}
+	@Autowired
+	private CustomerFacade customerFacade;
+	@Autowired
+	private AdministratorFacade administratorFacade;
 	
 	public CouponClientFacade login(String name, String paswwrod, String clientType)
 	{
@@ -23,10 +18,9 @@ public class CouponSystem {
 			case "company":
 				return compFacade.login(name,paswwrod);
 			case "customer":
-				// implement
-				break;
+				return customerFacade.login(name,paswwrod);
 			case "administrator":
-			break;
+				return administratorFacade.login(name,paswwrod);
 		}
 		
 		// of course should not be here....

@@ -24,20 +24,20 @@ public class LoginServlet {
 		String username = request.getParameter("userName");
 		String password = request.getParameter("password");
 		String usertype = request.getParameter("usertype");
-		System.out.println("userName : " + username + " password :" + password + " usertype : " + usertype);
+		System.out.println("userName :" + username + " password :" + password + " usertype : " + usertype);
 		CouponClientFacade facade = couponSystem.login(username, password, usertype);
 
-//		if (facade == null) {
-//			// login failed!
-//			response.sendRedirect("http://localhost:8080/index.html?error=myerror");
-//		} else {
-//			// write facade to session
-//			request.getSession().setAttribute("facade", facade);
-//
-//			// here check the client type to make the correct redirect
-//			// for demo i only use 1 client type - company
-//			response.sendRedirect("http://localhost:8080/company/index.html");
-//		}
+		if (facade == null) {
+			// login failed!
+			response.sendRedirect("http://localhost:8080/index.html");
+		} else {
+			// write facade to session
+			request.getSession().setAttribute("facade", facade);
+
+			// here check the client type to make the correct redirect
+			// for demo i only use 1 client type - company
+			response.sendRedirect("https://spring.io/guides/tutorials/bookmarks/");
+		}
 	}
 
 }
