@@ -1,8 +1,10 @@
 package com.coupon.main.repository;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.coupon.main.bean.Company;
 import com.coupon.main.bean.Coupon;
@@ -11,19 +13,27 @@ public interface CompanyRepo extends CrudRepository<Company, Integer> {
 
 	
 	Company findByid (long id);
-	Company findBycompName (String  compName);
+	Company findBycompName (String compName);
 	long deleteByid(long id);
+	
 	@Query("SELECT t FROM COMPANY t where t.compName = :name and t.password = :password") 
 	Company login(@Param("name")String name,@Param("password") String password);
+	
+	
+	@Modifying
+	@Transactional(readOnly=false)
+	@Query("UPDATE COMPANY c SET c.email =:email, c.password=:password WHERE c.id = :id ") 
+	int  updateCompany(@Param("id")long id,@Param("email") String email,@Param("password") String password);
+	
+	
+//	@Modifying
+//	@Transactional(readOnly=false)
+//	@Query("UPDATE COMPANY c SET c.email =:email WHERE c.id = :id ") 
+//	int  updateCompany(@Param("id")long id,@Param("email") String email);
+	
+	
 
 	
-//	@Query("update COMPANY u set u.COMP_NAME:=COMP_NAME, u.PASSWORD:=PASSWORD ,u.EMAIL:=EMAIL where u.ID =:ID")
-//	int setFixedFirstnameFor(@Param("ID")Long id,@Param("COMP_NAME")String compName, 
-//	@Param("PASSWORD")String password,@Param("EMAIL")String email);
-	
-
-	
-//	Iterable<Company> findAllByname (long id);
 	
 	
 

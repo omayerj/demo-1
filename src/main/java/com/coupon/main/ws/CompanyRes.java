@@ -24,6 +24,7 @@ public class CompanyRes {
 		//CouponClientFacade facade = cs.login("itworks", "wow", "company");
 		//return (CompanyFacade)facade;
 		CompanyFacade facade = (CompanyFacade) request.getSession().getAttribute("facade");
+		System.out.println("CompanyRes::getCompanyFacade");
 		if (facade == null)
 		{
 			// NOT AUTHENTICATED!!!!...

@@ -10,6 +10,8 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,10 +28,13 @@ import com.coupon.main.facad.CouponSystem;
 import com.coupon.main.repository.CompanyRepo;
 import com.coupon.main.repository.CouponRepo;
 import com.coupon.main.repository.CustomerRepo;
+import org.junit.runners.MethodSorters;
 
+import org.junit.FixMethodOrder;
 @RunWith(SpringRunner.class)
 //@ComponentScan(basePackages = { "com.coupon.bean", "com.example.demo"})
 @SpringBootTest()
+@FixMethodOrder(MethodSorters.DEFAULT)
 public class Demo1ApplicationTests {
 	@Autowired
 	private CompanyRepo companyRepo;
@@ -96,6 +101,7 @@ public class Demo1ApplicationTests {
 		return new Date(cal.getTimeInMillis());
 	}
 	@Test
+//	@Before
 	public void coupuonTest() {
 System.out.println("START");
 		
@@ -155,9 +161,10 @@ System.out.println("START");
 	@Autowired
 	private CouponSystem couponSystem;
 	@Test
-	public void CouponSystemTest() {
+	public void Coupon5_SystemTest() {
 		System.out.println("CouponSystemTest :: start");
-		
+//		Company CoTest= new Company("asddsa", "123", "asd@sdad.sad");
+//		companyRepo.save(CoTest);
 		System.out.println("couponSystem :"+couponSystem);
 		CouponClientFacade facade = couponSystem.login("asddsa", "123", "company");
 		System.out.println("facade :"+facade);
@@ -192,6 +199,18 @@ System.out.println("START");
 		System.out.println("companyFacadeTest :: End");
 		assertNotNull(couponClientFacade);
 
+	}
+	
+	@Test
+	public void updateCompanyTest8() {
+		System.out.println("updateCompanyTest :: start");
+		System.out.println("before update ");
+		System.out.println(companyRepo.findByid(1));
+		int update=companyRepo.updateCompany(1, "update@update.update", "123");
+		System.out.println("update : "+update);
+		System.out.println("after update ");
+		System.out.println(companyRepo.findByid(1));
+		System.out.println("updateCompanyTest :: End");
 	}
 	
 	

@@ -67,7 +67,7 @@ public class CompanyDBDAO implements CompanyDAO {
 
 	@Override
 	public void updateCompany(Company c) {
-
+		companyRepo.updateCompany(c.getId(),c.getEmail(),c.getPassword(),c.getCompName());
 		// conn.prepareStatement(CompanySQLQueries.UPDATE_COMPANY);
 
 	}
