@@ -12,8 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity(name = "CUSTOMER")
+@XmlRootElement
 public class Customer implements Serializable {
 	/**
 	 * 
@@ -28,6 +30,7 @@ public class Customer implements Serializable {
 	private String password;
 
 	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+//	@ManyToMany(fetch=FetchType.EAGER, cascade = {CascadeType.DETACH , CascadeType.MERGE, CascadeType.REFRESH})
 	@JoinTable(name = "CUSTOMER_Coupon", 
 		joinColumns = @JoinColumn(name = "customer_id", referencedColumnName = "id"), 
 		inverseJoinColumns = @JoinColumn(name = "coupon_id", referencedColumnName = "id"))

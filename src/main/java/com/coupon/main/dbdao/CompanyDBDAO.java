@@ -45,6 +45,9 @@ public class CompanyDBDAO implements CompanyDAO {
 	public void createCompany(Company c) {
 
 		// conn.prepareStatement(CompanySQLQueries.CREATE_COMPANY);
+		System.out.println("createCompany");
+		companyRepo.save(c);
+		System.out.println("createCompany   passs :)");
 
 	}
 
@@ -57,6 +60,13 @@ public class CompanyDBDAO implements CompanyDAO {
 			return false;
 		return true;
 	}
+	public Company getCompany(String name, String password) {
+		System.out.println("userName : "+ name +" password :"+ password );
+		System.out.println("companyRepo : "+companyRepo);
+		Company getCompany = companyRepo.login(name, password);
+		System.out.println("getCompany : "+getCompany);
+		return getCompany;
+	}
 
 	@Override
 	public void removeCompany(Company c) {
@@ -67,7 +77,7 @@ public class CompanyDBDAO implements CompanyDAO {
 
 	@Override
 	public void updateCompany(Company c) {
-		companyRepo.updateCompany(c.getId(),c.getEmail(),c.getPassword(),c.getCompName());
+		companyRepo.updateCompany(c.getId(),c.getEmail(),c.getPassword());
 		// conn.prepareStatement(CompanySQLQueries.UPDATE_COMPANY);
 
 	}

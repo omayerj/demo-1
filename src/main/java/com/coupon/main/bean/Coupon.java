@@ -14,8 +14,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
+@XmlRootElement
 public class Coupon implements Serializable {
 
 	/**
@@ -46,6 +48,7 @@ public class Coupon implements Serializable {
 	private Company company;
 	
 	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+//	@ManyToMany(fetch=FetchType.EAGER, cascade = {CascadeType.DETACH , CascadeType.MERGE, CascadeType.REFRESH})
 	@JoinTable(name = "CUSTOMER_Coupon", 
 		joinColumns = @JoinColumn(name = "coupon_id", referencedColumnName = "id"), 
 				inverseJoinColumns = @JoinColumn(name = "customer_id", referencedColumnName = "id"))

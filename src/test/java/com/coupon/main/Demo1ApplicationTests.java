@@ -59,12 +59,12 @@ public class Demo1ApplicationTests {
 		double price=10.0;
 		Coupon couponTest1= new Coupon("coupuonAndCustomerTest1", dateToDateSql(2017,1,3), dateToDateSql(2018,8,2), 43, "fdfd dsfjkdsf", price);
 		couponRepo.save(couponTest1);
-		Coupon couponDb1= couponRepo.findBytitle("coupuonAndCustomerTest1");
+		Coupon couponDb1=  couponRepo.findBytitle("coupuonAndCustomerTest1").iterator().next();
 		System.out.println("couponDb :"+ couponDb1);
 	//////2////
 		Coupon couponTest2= new Coupon("coupuonAndCustomerTest2", dateToDateSql(2017,1,3), dateToDateSql(2018,8,2), 43, "fdfd dsfjkdsf", price);
 		couponRepo.save(couponTest2);
-		Coupon couponDb2= couponRepo.findBytitle("coupuonAndCustomerTest2");
+		Coupon couponDb2= (Coupon) couponRepo.findBytitle("coupuonAndCustomerTest2").iterator().next();
 		System.out.println("couponDb :"+ couponDb2);
 	//////2emd///
 		Set<Coupon> coupons =new HashSet<Coupon>();
@@ -77,7 +77,7 @@ public class Demo1ApplicationTests {
 		System.out.println("getCoupons : "+newCustomerDb.getCoupons().isEmpty());
 		couponRepo.findBytitle(newCustomerDb.getCoupons().iterator().next().getTitle());
 		System.out.println(newCustomerDb.getCoupons().iterator().next().getTitle());
-		Coupon couponDbnew=couponRepo.findBytitle("coupuonAndCustomerTest2"); 
+		Coupon couponDbnew= couponRepo.findBytitle("coupuonAndCustomerTest2").iterator().next(); 
 		System.out.println("with  Customers"+couponDbnew.getCustomers().toString());
 		System.out.println("coupuonAndCustomerTest::End");
 	}
