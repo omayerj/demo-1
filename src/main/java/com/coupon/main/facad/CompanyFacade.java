@@ -11,7 +11,6 @@ import com.coupon.main.bean.Coupon;
 import com.coupon.main.dbdao.CompanyDBDAO;
 import com.coupon.main.dbdao.CouponDBDAO;
 import com.coupon.main.exception.SystemExceptionCoupoun;
-import com.coupon.main.repository.CustomerRepo;
 
 @Component
 public class CompanyFacade implements CouponClientFacade {
@@ -19,7 +18,7 @@ public class CompanyFacade implements CouponClientFacade {
 	private CompanyDBDAO companyDBDAO;
 	@Autowired
 	private CouponDBDAO couponDBDAO;
-	
+
 	private Company thisCompany;
 
 	public Company getCompany(String name, String password) {
@@ -32,7 +31,7 @@ public class CompanyFacade implements CouponClientFacade {
 		System.out.println("userName : " + name + " password :" + password);
 		System.out.println("companyDBDAO :  " + companyDBDAO);
 		if (companyDBDAO.login(name, password)) {
-			this.thisCompany =getCompany(name, password);
+			this.thisCompany = getCompany(name, password);
 			System.out.println("login pass :)");
 			return this;
 		}
@@ -43,8 +42,8 @@ public class CompanyFacade implements CouponClientFacade {
 	public Company createCoupon(Coupon coupon) throws SystemExceptionCoupoun {
 		System.out.println("CompanyFacade::createCoupon");
 		coupon.setCompany(thisCompany);
-		Coupon couponId=couponDBDAO.createCoupon(coupon);
-		Set<Coupon> CouponSet= thisCompany.getCoupons();
+		Coupon couponId = couponDBDAO.createCoupon(coupon);
+		Set<Coupon> CouponSet = thisCompany.getCoupons();
 		CouponSet.add(couponId);
 		thisCompany.setCoupons(CouponSet);
 		return thisCompany;
@@ -55,10 +54,21 @@ public class CompanyFacade implements CouponClientFacade {
 		System.out.println("CompanyFacade::getAllCoupon");
 		System.out.println("this Company : " + thisCompany);
 		Collection<Coupon> listCoupon = couponDBDAO.getAllCoupon(thisCompany.getId());
-		System.out.println(" ID : "+thisCompany.getId());
+		System.out.println(" ID : " + thisCompany.getId());
 		System.out.println("listCoupon : " + listCoupon);
 		return listCoupon;
 
 	}
 
+	public Company updateCoupon(Coupon coupon) throws SystemExceptionCoupoun {
+		System.out.println("CompanyFacade::updateCoupon");
+		coupon.setCompany(thisCompany);
+		couponDBDAO.updateCoupon(coupon);
+		Collection<Coupon> listCoupon = couponDBDAO.getAllCoupon(thisCompany.getId());
+		thisCompany.setCoupons((Set<Coupon>) listCoupon);
+		System.out.println("thisCompany after Updeat" + thisCompany);
+
+		return thisCompany;
+
+	}
 }

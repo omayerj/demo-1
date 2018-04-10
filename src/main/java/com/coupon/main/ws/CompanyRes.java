@@ -85,6 +85,20 @@ public class CompanyRes {
 		return companyResourcesV1;
 
 	}
+	@RequestMapping(value = "/api/companyres/updateCoupon", method = RequestMethod.PUT)
+	public CompanyResources updateCoupon(@RequestBody CouponResources coupon, HttpServletRequest request)
+			throws SystemExceptionCoupoun {
+		System.out.println("api/companyres/updateCoupon::updateCoupon");
+		CompanyFacade companyFacade = this.getCompanyFacade(request);
+		System.out.println(request);
+		System.out.println(coupon);
+		Company company = companyFacade.updateCoupon(mapCouponResourcesToCoupon(coupon));
+		CompanyResources companyResourcesV1 = mapCompanyToCompanyResources(company);
+		System.out.println(companyResourcesV1);
+
+		return companyResourcesV1;
+
+	}
 
 	public CompanyResources mapCompanyToCompanyResources(Company company) {
 		System.out.println("mapCompanyToCompanyResources");
@@ -112,7 +126,10 @@ public class CompanyRes {
 		System.out.println("mapCouponResourcesToCoupon");
 		Coupon CouponV1 = new Coupon();
 		CouponV1.setId(coupon.getId());
-		// CouponV1.setCompany(coupon.getCompany());
+//		Company companyResourcesV1 =mapCompanyResourcesToCompany(coupon.getCompany()); 
+//		System.out.println("coupon Get Company from rest"+coupon.getCompany());
+//		System.out.println("companyResourcesV1 after map "+companyResourcesV1);
+//		 CouponV1.setCompany(companyResourcesV1);
 		// CouponV1.setCustomers(coupon.getCustomers());
 		CouponV1.setType(coupon.getType());
 		CouponV1.setAmount(coupon.getAmount());
@@ -122,7 +139,7 @@ public class CompanyRes {
 		CouponV1.setPrice(coupon.getPrice());
 		CouponV1.setMessage(coupon.getImage());
 		CouponV1.setTitle(coupon.getTitle());
-
+		System.out.println("mapCouponResourcesToCoupon :: END"+ CouponV1);
 		return CouponV1;
 	}
 

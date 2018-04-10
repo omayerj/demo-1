@@ -49,9 +49,22 @@ public class CouponDBDAO implements CouponDAO {
 
 	@Override
 	public void updateCoupon(Coupon c) throws SystemExceptionCoupoun {
+		System.out.println("CouponDBDAO::updateCoupon");
+		System.out.println(c);
+		Set<Coupon> couponSet = couponRepo.findBytitle(c.getTitle());
+		couponSet.isEmpty();
+		System.out.println(couponSet);
+		System.out.println("couponSet.isEmpty() ::" + couponSet.isEmpty());
+		if (!couponSet.isEmpty()) {
 
-		// PreparedStatement preparedStatement =
-		// conn.prepareStatement(CouponSQLQueries.UPDATE_COUPON);
+			throw new SystemExceptionCoupoun("the title is exists ");
+		}
+
+		else {
+			System.out.println("updateCoupon");
+			System.out.println(c);
+			couponRepo.save(c);
+		}
 
 	}
 
@@ -65,7 +78,6 @@ public class CouponDBDAO implements CouponDAO {
 
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public Collection<Coupon> getAllCoupon(long id) throws SystemExceptionCoupoun {
 		System.out.println("CouponDBDAO::getAllCoupon-GET_ALL_COUPON_BY_COMPANY");

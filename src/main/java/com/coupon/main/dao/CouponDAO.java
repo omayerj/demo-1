@@ -1,6 +1,7 @@
 package com.coupon.main.dao;
 
 import java.util.Collection;
+import java.util.Set;
 
 import com.coupon.main.bean.Coupon;
 import com.coupon.main.bean.CouponType;
