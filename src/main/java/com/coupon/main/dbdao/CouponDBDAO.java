@@ -55,8 +55,11 @@ public class CouponDBDAO implements CouponDAO {
 		couponSet.isEmpty();
 		System.out.println(couponSet);
 		System.out.println("couponSet.isEmpty() ::" + couponSet.isEmpty());
-		if (!couponSet.isEmpty()) {
-
+		if (!couponSet.isEmpty() ) {
+			System.out.println("couponSet.iterator().next().getId()"+couponSet.iterator().next().getId());
+			System.out.println("c.getId()"+c.getId());
+			System.out.println(couponSet.iterator().next().getId()!=c.getId());
+			if(couponSet.iterator().next().getId()!=c.getId())
 			throw new SystemExceptionCoupoun("the title is exists ");
 		}
 
@@ -91,18 +94,23 @@ public class CouponDBDAO implements CouponDAO {
 
 	@Override
 	public Collection<Coupon> getCouponByType(CouponType type) throws SystemExceptionCoupoun {
-
+		System.out.println("CouponDBDAO::getCouponByType");
+		Set<Coupon> couponSet =couponRepo.findBytype(type);
+		couponSet.isEmpty();
+		System.out.println(couponSet);
+		System.out.println("couponSet.isEmpty() ::" + couponSet.isEmpty());
 		// PreparedStatement preparedStatement =
 		// conn.prepareStatement(CouponSQLQueries.GET_COUPON_BY_TYPE);
 
-		return null;
+		return couponSet;
 	}
 
 	@Override
 	public Coupon getCouponByTitle(String title) throws SystemExceptionCoupoun {
+		System.out.println("CouponDBDAO::getCouponByTitle");
+		Set<Coupon> couponSet =couponRepo.findBytitle(title);
+		System.out.println("couponSet ::"+couponSet);
 
-		// PreparedStatement preparedStatement =
-		// conn.prepareStatement(CouponSQLQueries.GET_COUPON_BY_TITLE);
 
 		return null;
 

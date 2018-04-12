@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.coupon.main.bean.Company;
@@ -21,12 +22,16 @@ import com.coupon.main.bean.resources.CouponResources;
 import com.coupon.main.exception.SystemExceptionCoupoun;
 import com.coupon.main.facad.CompanyFacade;
 import com.coupon.main.facad.CouponClientFacade;
+import com.coupon.main.map.Map;
 
 @RestController
 @CrossOrigin(origins = "*")
 public class CompanyRes {
 	@Autowired
 	private CompanyFacade companyFacade;
+
+	@Autowired
+	private Map map;
 
 	private CompanyFacade getCompanyFacade(HttpServletRequest request) {
 		// after completing all of the tests + and after completing all of tyhe
@@ -64,7 +69,7 @@ public class CompanyRes {
 		System.out.println(listCoupon);
 		for (Coupon coupon : listCoupon) {
 
-			listCouponResources.add(mapCouponToCouponResources(coupon));
+			listCouponResources.add(map.mapCouponToCouponResources(coupon));
 		}
 
 		System.out.println(listCouponResources);
@@ -78,13 +83,14 @@ public class CompanyRes {
 		CompanyFacade companyFacade = this.getCompanyFacade(request);
 		System.out.println(request);
 		System.out.println(coupon);
-		Company company = companyFacade.createCoupon(mapCouponResourcesToCoupon(coupon));
-		CompanyResources companyResourcesV1 = mapCompanyToCompanyResources(company);
+		Company company = companyFacade.createCoupon(map.mapCouponResourcesToCoupon(coupon));
+		CompanyResources companyResourcesV1 = map.mapCompanyToCompanyResources(company);
 		System.out.println(companyResourcesV1);
 
 		return companyResourcesV1;
 
 	}
+
 	@RequestMapping(value = "/api/companyres/updateCoupon", method = RequestMethod.PUT)
 	public CompanyResources updateCoupon(@RequestBody CouponResources coupon, HttpServletRequest request)
 			throws SystemExceptionCoupoun {
@@ -92,73 +98,35 @@ public class CompanyRes {
 		CompanyFacade companyFacade = this.getCompanyFacade(request);
 		System.out.println(request);
 		System.out.println(coupon);
-		Company company = companyFacade.updateCoupon(mapCouponResourcesToCoupon(coupon));
-		CompanyResources companyResourcesV1 = mapCompanyToCompanyResources(company);
+		Company company = companyFacade.updateCoupon(map.mapCouponResourcesToCoupon(coupon));
+		CompanyResources companyResourcesV1 = map.mapCompanyToCompanyResources(company);
 		System.out.println(companyResourcesV1);
-
-		return companyResourcesV1;
-
-	}
-
-	public CompanyResources mapCompanyToCompanyResources(Company company) {
-		System.out.println("mapCompanyToCompanyResources");
-		CompanyResources companyResourcesV1 = new CompanyResources();
-		companyResourcesV1.setCompName(company.getCompName());
-		companyResourcesV1.setId(company.getId());
-		companyResourcesV1.setEmail(company.getEmail());
-		companyResourcesV1.setPassword(company.getPassword());
-		// companyResourcesV1.setCoupons(company.getCoupons());
 		return companyResourcesV1;
 	}
 
-	public Company mapCompanyResourcesToCompany(CompanyResources company) {
-		System.out.println("mapCompanyResourcesToCompany");
-		Company companyResourcesV1 = new Company();
-		companyResourcesV1.setCompName(company.getCompName());
-		companyResourcesV1.setId(company.getId());
-		companyResourcesV1.setEmail(company.getEmail());
-		companyResourcesV1.setPassword(company.getPassword());
-		// companyResourcesV1.setCoupons(company.getCoupons());
-		return companyResourcesV1;
-	}
+	@RequestMapping(value = "/api/companyres", method = RequestMethod.GET)
+	public Collection<CouponResources> getCompanyByType(@RequestParam(value = "getCouponByType") String CouponByType,
+			HttpServletRequest request) throws SystemExceptionCoupoun {
+		System.out.println("getCompanyByType");
+		CompanyFacade companyFacade = this.getCompanyFacade(request);
+		System.out.println("request :"+request);
+		System.out.println("CouponByType :" + CouponByType);
+		Collection<Coupon> listCouponCollection = companyFacade.getCompanyByType(CouponByType);
+		ArrayList<Coupon> listCoupon = new ArrayList<Coupon>(listCouponCollection);
+		 System.out.println(" reslt " + listCoupon);
+		 Collection<CouponResources> listCouponResources = new
+		 ArrayList<CouponResources>();
+		 System.out.println("listCoupon");
+		 System.out.println("+++++++++++++++++++++++++++=");
+		 System.out.println(listCoupon);
+		 for (Coupon coupon : listCoupon) {
+		
+		 listCouponResources.add(map.mapCouponToCouponResources(coupon));
+		 }
+		
+		 System.out.println(listCouponResources);
 
-	public Coupon mapCouponResourcesToCoupon(CouponResources coupon) {
-		System.out.println("mapCouponResourcesToCoupon");
-		Coupon CouponV1 = new Coupon();
-		CouponV1.setId(coupon.getId());
-//		Company companyResourcesV1 =mapCompanyResourcesToCompany(coupon.getCompany()); 
-//		System.out.println("coupon Get Company from rest"+coupon.getCompany());
-//		System.out.println("companyResourcesV1 after map "+companyResourcesV1);
-//		 CouponV1.setCompany(companyResourcesV1);
-		// CouponV1.setCustomers(coupon.getCustomers());
-		CouponV1.setType(coupon.getType());
-		CouponV1.setAmount(coupon.getAmount());
-		CouponV1.setEndDate(coupon.getEndDate());
-		CouponV1.setStartDate(coupon.getStartDate());
-		CouponV1.setImage(coupon.getImage());
-		CouponV1.setPrice(coupon.getPrice());
-		CouponV1.setMessage(coupon.getImage());
-		CouponV1.setTitle(coupon.getTitle());
-		System.out.println("mapCouponResourcesToCoupon :: END"+ CouponV1);
-		return CouponV1;
-	}
-
-	public CouponResources mapCouponToCouponResources(Coupon coupon) {
-		System.out.println("mapCouponToCouponResources");
-		CouponResources CouponV1 = new CouponResources();
-		CouponV1.setId(coupon.getId());
-		// CouponV1.setCompany(coupon.getCompany());
-		// CouponV1.setCustomers(coupon.getCustomers());
-		CouponV1.setType(coupon.getType());
-		CouponV1.setAmount(coupon.getAmount());
-		CouponV1.setEndDate(coupon.getEndDate());
-		CouponV1.setStartDate(coupon.getStartDate());
-		// CouponV1.setImage(coupon.getImage());
-		CouponV1.setPrice(coupon.getPrice());
-		CouponV1.setMessage(coupon.getMessage());
-		CouponV1.setTitle(coupon.getTitle());
-		System.out.println("mapCouponToCouponResources : end");
-		return CouponV1;
+		return listCouponResources;
 
 	}
 

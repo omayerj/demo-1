@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.coupon.main.bean.Company;
 import com.coupon.main.bean.Coupon;
+import com.coupon.main.bean.CouponType;
 import com.coupon.main.dbdao.CompanyDBDAO;
 import com.coupon.main.dbdao.CouponDBDAO;
 import com.coupon.main.exception.SystemExceptionCoupoun;
@@ -57,9 +58,16 @@ public class CompanyFacade implements CouponClientFacade {
 		System.out.println(" ID : " + thisCompany.getId());
 		System.out.println("listCoupon : " + listCoupon);
 		return listCoupon;
-
 	}
-
+	public Collection<Coupon> getCompanyByType(String type) throws SystemExceptionCoupoun {
+		System.out.println("CompanyFacade::getCompanyByType");
+		System.out.println("this Company : " + thisCompany);
+		CouponType couponType =   CouponType.valueOf(type);
+		Collection<Coupon> listCoupon = couponDBDAO.getCouponByType(couponType);
+		System.out.println(" ID : " + thisCompany.getId());
+		System.out.println("listCoupon : " + listCoupon);
+		return listCoupon;
+	}
 	public Company updateCoupon(Coupon coupon) throws SystemExceptionCoupoun {
 		System.out.println("CompanyFacade::updateCoupon");
 		coupon.setCompany(thisCompany);

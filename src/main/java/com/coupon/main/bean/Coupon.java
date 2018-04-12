@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -27,7 +29,7 @@ public class Coupon implements Serializable {
 	@Id
 	@GeneratedValue
 	private long id;
-	@Column
+	@Column //(unique=true, nullable=true) 
 	private String title;
 	@Column
 	private Date startDate;
@@ -70,7 +72,7 @@ public class Coupon implements Serializable {
 		this.company = company;
 	}
 
-	public Coupon(long id, String title, Date startDate, Date endDate, int amount, String message,
+	public Coupon(long id, String title, Date startDate,CouponType type, Date endDate, int amount, String message,
 			double price) {
 		super();
 		this.id = id;
@@ -80,9 +82,10 @@ public class Coupon implements Serializable {
 		this.amount = amount;
 		this.message = message;
 		this.price = price;
+		this.type =type;
 	}
 
-	public Coupon(String title, Date startDate, Date endDate, int amount, String message,
+	public Coupon(String title,CouponType type, Date startDate, Date endDate, int amount, String message,
 			double price) {
 		super();
 		this.title = title;
@@ -91,6 +94,7 @@ public class Coupon implements Serializable {
 		this.amount = amount;
 		this.message = message;
 		this.price = price;
+		this.type =type;
 	}
 
 	public Coupon(long id, String title) {

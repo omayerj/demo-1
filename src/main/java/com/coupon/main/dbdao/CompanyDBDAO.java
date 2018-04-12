@@ -61,7 +61,8 @@ public class CompanyDBDAO implements CompanyDAO {
 		return true;
 	}
 	public Company getCompany(String name, String password) {
-		System.out.println("userName : "+ name +" password :"+ password );
+//		System.out.println("userName : "+ name +" password :"+ password );
+		logger.info("userName : "+ name +" password :"+ password);
 		System.out.println("companyRepo : "+companyRepo);
 		Company getCompany = companyRepo.login(name, password);
 		System.out.println("getCompany : "+getCompany);

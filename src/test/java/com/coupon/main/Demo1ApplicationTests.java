@@ -20,6 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.coupon.main.bean.Company;
 import com.coupon.main.bean.Coupon;
+import com.coupon.main.bean.CouponType;
 import com.coupon.main.bean.Customer;
 import com.coupon.main.dbdao.CompanyDBDAO;
 import com.coupon.main.facad.CompanyFacade;
@@ -57,12 +58,13 @@ public class Demo1ApplicationTests {
 		System.out.println("customerDb :"+customerDb.toString());
 		System.out.println("Add coupuon");
 		double price=10.0;
-		Coupon couponTest1= new Coupon("coupuonAndCustomerTest1", dateToDateSql(2017,1,3), dateToDateSql(2018,8,2), 43, "fdfd dsfjkdsf", price);
+		Coupon couponTest1= new Coupon("coupuonAndCustomerTest1", CouponType.RESTURANS,dateToDateSql(2017,1,3), dateToDateSql(2018,8,2), 43, "fdfd dsfjkdsf", price);
 		couponRepo.save(couponTest1);
 		Coupon couponDb1=  couponRepo.findBytitle("coupuonAndCustomerTest1").iterator().next();
 		System.out.println("couponDb :"+ couponDb1);
 	//////2////
-		Coupon couponTest2= new Coupon("coupuonAndCustomerTest2", dateToDateSql(2017,1,3), dateToDateSql(2018,8,2), 43, "fdfd dsfjkdsf", price);
+		 
+		Coupon couponTest2= new Coupon("coupuonAndCustomerTest2", CouponType.ELECTRICTY, dateToDateSql(2017,1,3), dateToDateSql(2018,8,2), 43, "fdfd dsfjkdsf", price);
 		couponRepo.save(couponTest2);
 		Coupon couponDb2= (Coupon) couponRepo.findBytitle("coupuonAndCustomerTest2").iterator().next();
 		System.out.println("couponDb :"+ couponDb2);
@@ -116,8 +118,8 @@ System.out.println("START");
 		System.out.println("sasdasddasdas");
 		System.out.println(ap);
 		double price=10.0;
-		Coupon couponTest1= new Coupon("qazxsw", dateToDateSql(2017,1,3), dateToDateSql(2018,8,2), 43, "fdfd dsfjkdsf", price);
-		Coupon couponTest2= new Coupon("qazxdsadsw", dateToDateSql(2217,9,3), dateToDateSql(2218,03,2), 423323, "fdfd defdsfsfjkdsf", price);
+		Coupon couponTest1= new Coupon("qazxsw", CouponType.TRAVELLING, dateToDateSql(2017,1,3), dateToDateSql(2018,8,2), 43, "fdfd dsfjkdsf", price);
+		Coupon couponTest2= new Coupon("qazxdsadsw", CouponType.FOOD, dateToDateSql(2217,9,3), dateToDateSql(2218,03,2), 423323, "fdfd defdsfsfjkdsf", price);
 		couponTest2.setCompany(CoTest3);
 		couponRepo.save(couponTest1);
 		couponRepo.save(couponTest2);
