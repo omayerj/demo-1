@@ -6,6 +6,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.coupon.main.bean.Company;
 import com.coupon.main.bean.Coupon;
 import com.coupon.main.bean.CouponType;
 import com.coupon.main.dao.CouponDAO;
@@ -110,6 +111,19 @@ public class CouponDBDAO implements CouponDAO {
 		System.out.println("CouponDBDAO::getCouponByTitle");
 		Set<Coupon> couponSet =couponRepo.findBytitle(title);
 		System.out.println("couponSet ::"+couponSet);
+
+
+		return null;
+
+	}
+
+	@Override
+	public Collection<Coupon> getCouponsByMaxPrice(Company company, double price) throws SystemExceptionCoupoun {
+		System.out.println("CouponDBDAO::getCouponsByMaxPrice");
+//		Set<Coupon> couponSet =couponRepo.findLessOfPrice(company, price);
+//		System.out.println("couponSet LessOfPrice " +price+" "+couponSet);
+		
+//		System.out.println("couponSet ::"+couponSet);
 
 
 		return null;

@@ -24,15 +24,28 @@ import com.coupon.main.facad.CompanyFacade;
 import com.coupon.main.facad.CouponClientFacade;
 import com.coupon.main.map.Map;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CompanyRes.
+ */
 @RestController
 @CrossOrigin(origins = "*")
 public class CompanyRes {
+	
+	/** The company facade. */
 	@Autowired
 	private CompanyFacade companyFacade;
 
+	/** The map. */
 	@Autowired
 	private Map map;
 
+	/**
+	 * Gets the company facade.
+	 *
+	 * @param request the request
+	 * @return the company facade
+	 */
 	private CompanyFacade getCompanyFacade(HttpServletRequest request) {
 		// after completing all of the tests + and after completing all of tyhe
 		// angular pages and testing them seperatley !!
@@ -55,6 +68,13 @@ public class CompanyRes {
 
 	}
 
+	/**
+	 * Gets the coupons.
+	 *
+	 * @param request the request
+	 * @return the coupons
+	 * @throws SystemExceptionCoupoun the system exception coupoun
+	 */
 	@RequestMapping(value = "/api/companyres/getcoupons", method = RequestMethod.GET)
 	public Collection<CouponResources> getCoupons(HttpServletRequest request) throws SystemExceptionCoupoun {
 		CompanyFacade companyFacade = this.getCompanyFacade(request);
@@ -77,6 +97,14 @@ public class CompanyRes {
 
 	}
 
+	/**
+	 * Creates the coupon.
+	 *
+	 * @param coupon the coupon
+	 * @param request the request
+	 * @return the company resources
+	 * @throws SystemExceptionCoupoun the system exception coupoun
+	 */
 	@RequestMapping(value = "/api/companyres/createCoupon", method = RequestMethod.POST)
 	public CompanyResources createCoupon(@RequestBody CouponResources coupon, HttpServletRequest request)
 			throws SystemExceptionCoupoun {
@@ -91,6 +119,14 @@ public class CompanyRes {
 
 	}
 
+	/**
+	 * Update coupon.
+	 *
+	 * @param coupon the coupon
+	 * @param request the request
+	 * @return the company resources
+	 * @throws SystemExceptionCoupoun the system exception coupoun
+	 */
 	@RequestMapping(value = "/api/companyres/updateCoupon", method = RequestMethod.PUT)
 	public CompanyResources updateCoupon(@RequestBody CouponResources coupon, HttpServletRequest request)
 			throws SystemExceptionCoupoun {
@@ -104,14 +140,47 @@ public class CompanyRes {
 		return companyResourcesV1;
 	}
 
+	/**
+	 * Gets the company by type.
+	 *
+	 * @param CouponByType the coupon by type
+	 * @param request the request
+	 * @return the company by type
+	 * @throws SystemExceptionCoupoun the system exception coupoun
+	 */
 	@RequestMapping(value = "/api/companyres", method = RequestMethod.GET)
-	public Collection<CouponResources> getCompanyByType(@RequestParam(value = "getCouponByType") String CouponByType,
+	public Collection<CouponResources> getCouponByType(@RequestParam(value = "getCouponByType") String CouponByType,
 			HttpServletRequest request) throws SystemExceptionCoupoun {
-		System.out.println("getCompanyByType");
+		System.out.println("getCouponByType");
 		CompanyFacade companyFacade = this.getCompanyFacade(request);
 		System.out.println("request :"+request);
 		System.out.println("CouponByType :" + CouponByType);
 		Collection<Coupon> listCouponCollection = companyFacade.getCompanyByType(CouponByType);
+		ArrayList<Coupon> listCoupon = new ArrayList<Coupon>(listCouponCollection);
+		 System.out.println(" reslt " + listCoupon);
+		 Collection<CouponResources> listCouponResources = new
+		 ArrayList<CouponResources>();
+		 System.out.println("listCoupon");
+		 System.out.println("+++++++++++++++++++++++++++=");
+		 System.out.println(listCoupon);
+		 for (Coupon coupon : listCoupon) {
+		
+		 listCouponResources.add(map.mapCouponToCouponResources(coupon));
+		 }
+		
+		 System.out.println(listCouponResources);
+
+		return listCouponResources;
+
+	}
+	@RequestMapping(value = "/api/companyres/less", method = RequestMethod.GET)
+	public Collection<CouponResources> getCouponsByMaxPrice(@RequestParam(value = "MaxPrice") double price,
+			HttpServletRequest request) throws SystemExceptionCoupoun {
+		System.out.println("getCouponsByMaxPrice");
+		CompanyFacade companyFacade = this.getCompanyFacade(request);
+		System.out.println("request :"+request);
+		System.out.println("price :" + price);
+		Collection<Coupon> listCouponCollection = companyFacade.getCouponsByMaxPrice(price);
 		ArrayList<Coupon> listCoupon = new ArrayList<Coupon>(listCouponCollection);
 		 System.out.println(" reslt " + listCoupon);
 		 Collection<CouponResources> listCouponResources = new

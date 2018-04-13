@@ -28,9 +28,9 @@ public class Company implements Serializable {
 	private String password;
 	@Column(nullable = false)
 	private String email;
-	 @OneToMany(mappedBy = "company", fetch = FetchType.EAGER, cascade =
-	 CascadeType.ALL)
-	 private Set<Coupon> coupons;
+	@OneToMany(mappedBy = "company", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private Set<Coupon> coupons;
+
 	public Company() {
 
 	}
