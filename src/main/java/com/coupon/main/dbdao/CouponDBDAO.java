@@ -120,13 +120,12 @@ public class CouponDBDAO implements CouponDAO {
 	@Override
 	public Collection<Coupon> getCouponsByMaxPrice(Company company, double price) throws SystemExceptionCoupoun {
 		System.out.println("CouponDBDAO::getCouponsByMaxPrice");
-//		Set<Coupon> couponSet =couponRepo.findLessOfPrice(company, price);
-//		System.out.println("couponSet LessOfPrice " +price+" "+couponSet);
-		
-//		System.out.println("couponSet ::"+couponSet);
+		Set<Coupon> couponSet =couponRepo.findLessOfPrice(price,company.getId() );
+		System.out.println("couponSet LessOfPrice " +price+" "+couponSet);
+		System.out.println("couponSet ::"+couponSet);
 
 
-		return null;
+		return couponSet;
 
 	}
 

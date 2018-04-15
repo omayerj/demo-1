@@ -138,14 +138,15 @@ public class CompanyFacade implements CouponClientFacade {
 		System.out.println("CompanyFacade::getCouponsByMaxPrice");
 		System.out.println("this Company : " + thisCompany);
 //		Collection<Coupon> listCoupon = couponDBDAO.getCouponsByMaxPrice(thisCompany,price);
-		Collection<Coupon> listCoupon = couponDBDAO.getAllCoupon(thisCompany.getId());
-		ArrayList<Coupon> Couponlist = new ArrayList<Coupon>(listCoupon);
-		System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7");
-		Set<Coupon> setOfPriceLess =  Couponlist.stream().filter(c -> c.getPrice()<=price).collect(Collectors.toSet());
-		System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7");
-		System.out.println("listOfPriceLess"+setOfPriceLess);
-		System.out.println(" ID : " + thisCompany.getId());
-		return setOfPriceLess;
+//		Collection<Coupon> listCoupon = couponDBDAO.getAllCoupon(thisCompany.getId());
+		Collection<Coupon> listCoupon = couponDBDAO.getCouponsByMaxPrice(thisCompany, price);
+//		ArrayList<Coupon> Couponlist = new ArrayList<Coupon>(listCoupon);
+//		System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7");
+//		Set<Coupon> setOfPriceLess =  Couponlist.stream().filter(c -> c.getPrice()<=price).collect(Collectors.toSet());
+//		System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7");
+//		System.out.println("listOfPriceLess"+setOfPriceLess);
+//		System.out.println(" ID : " + thisCompany.getId());
+		return listCoupon;
 	}
 	
 	
