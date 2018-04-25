@@ -1,9 +1,11 @@
 package com.coupon.main.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,12 +33,19 @@ public class LoginServlet {
 			// login failed!
 			response.sendRedirect("http://localhost:8080/index.html");
 		} else {
-			// write facade to session
 			request.getSession().setAttribute("facade", facade);
-
-			// here check the client type to make the correct redirect
-			// for demo i only use 1 client type - company
-			response.sendRedirect("https://spring.io/guides/tutorials/bookmarks/");
+			switch (usertype)
+			{
+			case "company":
+				response.sendRedirect("http://localhost:8080/Company/index.html");
+				break;
+			case "customer":
+				response.sendRedirect("https://spring.io/guides/tutorials/bookmarks/");
+				break;
+			case "administrator":
+				response.sendRedirect("https://spring.io/guides/tutorials/bookmarks/");
+				break;
+			}
 		}
 	}
 

@@ -46,25 +46,20 @@ public class CompanyRes {
 	 * @param request the request
 	 * @return the company facade
 	 */
+	@SuppressWarnings("unused")
 	private CompanyFacade getCompanyFacade(HttpServletRequest request) {
-		// after completing all of the tests + and after completing all of tyhe
-		// angular pages and testing them seperatley !!
-		// only then we will connect the login page + login servlet -> and add a
-		// real login + session!!
-		// .. we now will use the real login
-		// step 1 - fake login
-		// CouponSystem cs = new CouponSystem(); // should be singleton!! (or
-		// autowired) using new here just for demo!!
+	
 		CouponClientFacade couponClientFacade = companyFacade.login("asddsaa", "123a");
 		return (CompanyFacade) couponClientFacade;
-		// CompanyFacade facade = (CompanyFacade)
-		// request.getSession().getAttribute("facade");
-		// System.out.println("CompanyRes::getCompanyFacade");
-		// if (facade == null)
-		// {
-		// // NOT AUTHENTICATED!!!!...
-		// }
-		// return facade;
+//		 CompanyFacade facade = (CompanyFacade)	 request.getSession().getAttribute("facade");
+//		 System.out.println("CompanyRes::getCompanyFacade");
+//		 System.out.println(facade.toString());
+//		 if (facade == null)
+//		 {
+//			 System.out.println("null");
+//			 return null;
+//		 }
+//		 return facade;
 
 	}
 
