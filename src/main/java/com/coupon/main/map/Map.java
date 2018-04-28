@@ -47,7 +47,7 @@ public class Map {
 		CouponV1.setStartDate(coupon.getStartDate());
 		CouponV1.setImage(coupon.getImage());
 		CouponV1.setPrice(coupon.getPrice());
-		CouponV1.setMessage(coupon.getImage());
+		CouponV1.setMessage(coupon.getMessage());
 		CouponV1.setTitle(coupon.getTitle());
 		System.out.println("mapCouponResourcesToCoupon :: END"+ CouponV1);
 		return CouponV1;

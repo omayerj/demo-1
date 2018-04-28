@@ -148,6 +148,8 @@ public class CompanyFacade implements CouponClientFacade {
 //		System.out.println(" ID : " + thisCompany.getId());
 		return listCoupon;
 	}
-	
+	public Company getCompany( ) throws SystemExceptionCoupoun {
+		return thisCompany;
+		}
 	
 }

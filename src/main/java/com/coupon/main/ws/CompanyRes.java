@@ -193,5 +193,16 @@ public class CompanyRes {
 		return listCouponResources;
 
 	}
+	@RequestMapping(value = "/api/companyres/Company", method = RequestMethod.GET)
+	public CompanyResources getCompany(HttpServletRequest request) throws SystemExceptionCoupoun {
+		CompanyFacade companyFacade = this.getCompanyFacade(request);
+		System.out.println(request);
+		Company company = companyFacade.getCompany();
+		CompanyResources companyRes= map.mapCompanyToCompanyResources(company) ;
+		
+	
+		return companyRes;
+
+	}
 
 }

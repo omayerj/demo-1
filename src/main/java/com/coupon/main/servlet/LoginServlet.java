@@ -31,13 +31,17 @@ public class LoginServlet {
 
 		if (facade == null) {
 			// login failed!
-			response.sendRedirect("http://localhost:8080/index.html");
+			response.sendRedirect("http://localhost:8080/indexEror.html");
 		} else {
 			request.getSession().setAttribute("facade", facade);
+			request.getSession().setAttribute("omayerj", null);
+			
 			switch (usertype)
 			{
 			case "company":
-				response.sendRedirect("http://localhost:8080/Company/index.html");
+//				response.sendRedirect("http://localhost:8080/Company/index.html");
+				response.sendRedirect("http://localhost:4200/");
+
 				break;
 			case "customer":
 				response.sendRedirect("https://spring.io/guides/tutorials/bookmarks/");
