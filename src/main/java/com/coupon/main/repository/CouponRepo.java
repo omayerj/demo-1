@@ -1,5 +1,6 @@
 package com.coupon.main.repository;
 
+import java.sql.Date;
 import java.util.Set;
 
 import org.springframework.data.jpa.repository.Query;
@@ -30,6 +31,9 @@ public interface CouponRepo extends CrudRepository<Coupon, Integer> {
 	
 	@Query("SELECT c FROM Coupon c where  c.company.id =:companyId and c.price <=:priceCoupon") 
 	Set<Coupon> findLessOfPrice(@Param("priceCoupon") double price,@Param("companyId") long id);
+	
+	@Query("SELECT c FROM Coupon c where  c.company.id =:companyId and c.endDate <=:endDate") 
+	Set<Coupon> findLessEndDate(@Param("endDate") Date endDate,@Param("companyId") long id);
 	
 //	@Query("SELECT c FROM Coupon c where  c.company.id =:companyId and c.price =:priceCoupon") 
 //	Set<Coupon> findLessOfPrice(@Param("priceCoupon") double price,@Param("companyId") long id);
