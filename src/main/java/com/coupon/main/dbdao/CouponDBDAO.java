@@ -42,9 +42,8 @@ public class CouponDBDAO implements CouponDAO {
 
 	@Override
 	public void removeCoupon(Coupon c) throws SystemExceptionCoupoun {
-
-		// PreparedStatement preparedStatement =
-		// conn.prepareStatement(CouponSQLQueries.REMOVE_COUPON + c.getId());
+		System.out.println("CouponDBDAO::removeCoupon");
+		couponRepo.delete(c);
 
 	}
 
@@ -111,10 +110,7 @@ public class CouponDBDAO implements CouponDAO {
 		System.out.println("CouponDBDAO::getCouponByTitle");
 		Set<Coupon> couponSet =couponRepo.findBytitle(title);
 		System.out.println("couponSet ::"+couponSet);
-
-
-		return null;
-
+		return couponSet.iterator().next();
 	}
 
 	@Override
@@ -123,10 +119,7 @@ public class CouponDBDAO implements CouponDAO {
 		Set<Coupon> couponSet =couponRepo.findLessOfPrice(price,company.getId() );
 		System.out.println("couponSet LessOfPrice " +price+" "+couponSet);
 		System.out.println("couponSet ::"+couponSet);
-
-
 		return couponSet;
-
 	}
 
 }

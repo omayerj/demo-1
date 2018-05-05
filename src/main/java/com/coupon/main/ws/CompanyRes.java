@@ -20,6 +20,7 @@ import com.coupon.main.bean.Coupon;
 import com.coupon.main.bean.resources.CompanyResources;
 import com.coupon.main.bean.resources.CouponResources;
 import com.coupon.main.exception.SystemExceptionCoupoun;
+import com.coupon.main.facad.AdministratorFacade;
 import com.coupon.main.facad.CompanyFacade;
 import com.coupon.main.facad.CouponClientFacade;
 import com.coupon.main.map.Map;
@@ -31,7 +32,7 @@ import com.coupon.main.map.Map;
 @RestController
 @CrossOrigin(origins = "*")
 public class CompanyRes {
-	
+
 	/** The company facade. */
 	@Autowired
 	private CompanyFacade companyFacade;
@@ -43,39 +44,42 @@ public class CompanyRes {
 	/**
 	 * Gets the company facade.
 	 *
-	 * @param request the request
+	 * @param request
+	 *            the request
 	 * @return the company facade
 	 */
 	@SuppressWarnings("unused")
 	private CompanyFacade getCompanyFacade(HttpServletRequest request) {
-	
+
 		CouponClientFacade couponClientFacade = companyFacade.login("asddsaa", "123a");
 		return (CompanyFacade) couponClientFacade;
-//		 CompanyFacade facade = (CompanyFacade)	 request.getSession().getAttribute("facade");
-//		 System.out.println("CompanyRes::getCompanyFacade");
-//		 System.out.println(facade.toString());
-//		 if (facade == null)
-//		 {
-//			 System.out.println("null");
-//			 return null;
-//		 }
-//		 return facade;
+		// CompanyFacade facade = (CompanyFacade)
+		// request.getSession().getAttribute("facade");
+		// System.out.println("CompanyRes::getCompanyFacade");
+		// System.out.println(facade.toString());
+		// if (facade == null)
+		// {
+		// System.out.println("null");
+		// return null;
+		// }
+		// return facade;
 
 	}
 
 	/**
 	 * Gets the coupons.
 	 *
-	 * @param request the request
+	 * @param request
+	 *            the request
 	 * @return the coupons
-	 * @throws SystemExceptionCoupoun the system exception coupoun
+	 * @throws SystemExceptionCoupoun
+	 *             the system exception coupoun
 	 */
 	@RequestMapping(value = "/api/companyres/getcoupons", method = RequestMethod.GET)
 	public Collection<CouponResources> getCoupons(HttpServletRequest request) throws SystemExceptionCoupoun {
 		CompanyFacade companyFacade = this.getCompanyFacade(request);
 		System.out.println(request);
 		Collection<Coupon> listCouponCollection = companyFacade.getAllCoupon();
-
 		ArrayList<Coupon> listCoupon = new ArrayList<Coupon>(listCouponCollection);
 		System.out.println(" reslt " + listCoupon);
 		Collection<CouponResources> listCouponResources = new ArrayList<CouponResources>();
@@ -83,10 +87,8 @@ public class CompanyRes {
 		System.out.println("+++++++++++++++++++++++++++=");
 		System.out.println(listCoupon);
 		for (Coupon coupon : listCoupon) {
-
 			listCouponResources.add(map.mapCouponToCouponResources(coupon));
 		}
-
 		System.out.println(listCouponResources);
 		return listCouponResources;
 
@@ -95,10 +97,13 @@ public class CompanyRes {
 	/**
 	 * Creates the coupon.
 	 *
-	 * @param coupon the coupon
-	 * @param request the request
+	 * @param coupon
+	 *            the coupon
+	 * @param request
+	 *            the request
 	 * @return the company resources
-	 * @throws SystemExceptionCoupoun the system exception coupoun
+	 * @throws SystemExceptionCoupoun
+	 *             the system exception coupoun
 	 */
 	@RequestMapping(value = "/api/companyres/createCoupon", method = RequestMethod.POST)
 	public CompanyResources createCoupon(@RequestBody CouponResources coupon, HttpServletRequest request)
@@ -109,18 +114,19 @@ public class CompanyRes {
 		Company company = companyFacade.createCoupon(map.mapCouponResourcesToCoupon(coupon));
 		CompanyResources companyResourcesV1 = map.mapCompanyToCompanyResources(company);
 		System.out.println(companyResourcesV1);
-
 		return companyResourcesV1;
-
 	}
 
 	/**
 	 * Update coupon.
 	 *
-	 * @param coupon the coupon
-	 * @param request the request
+	 * @param coupon
+	 *            the coupon
+	 * @param request
+	 *            the request
 	 * @return the company resources
-	 * @throws SystemExceptionCoupoun the system exception coupoun
+	 * @throws SystemExceptionCoupoun
+	 *             the system exception coupoun
 	 */
 	@RequestMapping(value = "/api/companyres/updateCoupon", method = RequestMethod.PUT)
 	public CompanyResources updateCoupon(@RequestBody CouponResources coupon, HttpServletRequest request)
@@ -138,71 +144,71 @@ public class CompanyRes {
 	/**
 	 * Gets the company by type.
 	 *
-	 * @param CouponByType the coupon by type
-	 * @param request the request
+	 * @param CouponByType
+	 *            the coupon by type
+	 * @param request
+	 *            the request
 	 * @return the company by type
-	 * @throws SystemExceptionCoupoun the system exception coupoun
+	 * @throws SystemExceptionCoupoun
+	 *             the system exception coupoun
 	 */
 	@RequestMapping(value = "/api/companyres", method = RequestMethod.GET)
 	public Collection<CouponResources> getCouponByType(@RequestParam(value = "getCouponByType") String CouponByType,
 			HttpServletRequest request) throws SystemExceptionCoupoun {
 		System.out.println("getCouponByType");
 		CompanyFacade companyFacade = this.getCompanyFacade(request);
-		System.out.println("request :"+request);
+		System.out.println("request :" + request);
 		System.out.println("CouponByType :" + CouponByType);
 		Collection<Coupon> listCouponCollection = companyFacade.getCompanyByType(CouponByType);
 		ArrayList<Coupon> listCoupon = new ArrayList<Coupon>(listCouponCollection);
-		 System.out.println(" reslt " + listCoupon);
-		 Collection<CouponResources> listCouponResources = new
-		 ArrayList<CouponResources>();
-		 System.out.println("listCoupon");
-		 System.out.println("+++++++++++++++++++++++++++=");
-		 System.out.println(listCoupon);
-		 for (Coupon coupon : listCoupon) {
-		
-		 listCouponResources.add(map.mapCouponToCouponResources(coupon));
-		 }
-		
-		 System.out.println(listCouponResources);
-
+		System.out.println(" reslt " + listCoupon);
+		Collection<CouponResources> listCouponResources = new ArrayList<CouponResources>();
+		System.out.println("listCoupon");
+		System.out.println("+++++++++++++++++++++++++++=");
+		System.out.println(listCoupon);
+		for (Coupon coupon : listCoupon) {
+			listCouponResources.add(map.mapCouponToCouponResources(coupon));
+		}
+		System.out.println(listCouponResources);
 		return listCouponResources;
-
 	}
 	@RequestMapping(value = "/api/companyres/less", method = RequestMethod.GET)
 	public Collection<CouponResources> getCouponsByMaxPrice(@RequestParam(value = "MaxPrice") double price,
 			HttpServletRequest request) throws SystemExceptionCoupoun {
 		System.out.println("getCouponsByMaxPrice");
 		CompanyFacade companyFacade = this.getCompanyFacade(request);
-		System.out.println("request :"+request);
+		System.out.println("request :" + request);
 		System.out.println("price :" + price);
 		Collection<Coupon> listCouponCollection = companyFacade.getCouponsByMaxPrice(price);
 		ArrayList<Coupon> listCoupon = new ArrayList<Coupon>(listCouponCollection);
-		 System.out.println(" reslt " + listCoupon);
-		 Collection<CouponResources> listCouponResources = new
-		 ArrayList<CouponResources>();
-		 System.out.println("listCoupon");
-		 System.out.println("+++++++++++++++++++++++++++=");
-		 System.out.println(listCoupon);
-		 for (Coupon coupon : listCoupon) {
-		
-		 listCouponResources.add(map.mapCouponToCouponResources(coupon));
-		 }
-		
-		 System.out.println(listCouponResources);
-
+		System.out.println(" reslt " + listCoupon);
+		Collection<CouponResources> listCouponResources = new ArrayList<CouponResources>();
+		System.out.println("listCoupon");
+		System.out.println("+++++++++++++++++++++++++++=");
+		System.out.println(listCoupon);
+		for (Coupon coupon : listCoupon) {
+			listCouponResources.add(map.mapCouponToCouponResources(coupon));
+		}
+		System.out.println(listCouponResources);
 		return listCouponResources;
-
 	}
+
 	@RequestMapping(value = "/api/companyres/Company", method = RequestMethod.GET)
 	public CompanyResources getCompany(HttpServletRequest request) throws SystemExceptionCoupoun {
 		CompanyFacade companyFacade = this.getCompanyFacade(request);
 		System.out.println(request);
 		Company company = companyFacade.getCompany();
-		CompanyResources companyRes= map.mapCompanyToCompanyResources(company) ;
-		
-	
+		CompanyResources companyRes = map.mapCompanyToCompanyResources(company);
 		return companyRes;
-
+	}
+	@RequestMapping(value = "/api/companyres/removeCoupoun", method = RequestMethod.DELETE)
+	public void removeCompany(HttpServletRequest request, @RequestBody CouponResources coupon)
+			throws SystemExceptionCoupoun {
+		CompanyFacade companyFacade = this.getCompanyFacade(request);
+		System.out.println("request :" + request);
+		System.out.println("removeCoupoun");
+		System.out.println("coupon :" + coupon);
+		companyFacade.removeCoupon(map.mapCouponResourcesToCoupon(coupon));
 	}
 
 }

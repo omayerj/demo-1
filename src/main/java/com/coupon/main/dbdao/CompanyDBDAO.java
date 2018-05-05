@@ -30,27 +30,20 @@ public class CompanyDBDAO implements CompanyDAO {
 
 	@Override
 	public Collection<Coupon> getCoupons() {
-
 		// conn.prepareStatement(JoinTableSQLQueries.GET_ALL_COUPON_BY_COMPANY);
-
 		return null;
 
 	}
 
 	@Override
 	public Collection<Long> getCouponsId(Company c) {
-
 		// .prepareStatement(JoinTableSQLQueries.GET_COMPANY_COUPON_BY_COMP_ID);
-
 		return null;
 	}
 
 	@Override
 	public Set<Company> getAllCompanies() {
 		System.out.println("CompanyDBDAO::getAllCompanies");
-//		Collection<Company> list= (Collection<Company>) companyRepo.findAll();
-		
-//		Set<Company> list = (Set<Company>) companyRepo.findAll();
 		Set<Company> listCompany= companyRepo.findAllCompanies();
 		System.out.println("list :" + listCompany);
 		return listCompany;
@@ -119,12 +112,10 @@ public class CompanyDBDAO implements CompanyDAO {
 		}
 		System.out.println("companyDB :"+companyDB);
 		return companyDB;
-
 	}
 
 	@Override
 	public Company getCompanyByName(String name) {
-
 		// PreparedStatement preparedStatement =
 		// conn.prepareStatement(CompanySQLQueries.SELECT_COMPANIES_BY_NAME);
 		return null;

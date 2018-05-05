@@ -151,5 +151,11 @@ public class CompanyFacade implements CouponClientFacade {
 	public Company getCompany( ) throws SystemExceptionCoupoun {
 		return thisCompany;
 		}
+
+	public void removeCoupon(Coupon coupon) throws SystemExceptionCoupoun {
+		System.out.println("CompanyFacade::removeCoupon");	
+		System.out.println("coupon :"+coupon);
+		couponDBDAO.removeCoupon(coupon);
+	}
 	
 }
