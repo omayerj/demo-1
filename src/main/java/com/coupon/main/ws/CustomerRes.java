@@ -1,5 +1,9 @@
 package com.coupon.main.ws;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.coupon.main.bean.Coupon;
 import com.coupon.main.bean.Customer;
 import com.coupon.main.bean.resources.CouponResources;
 import com.coupon.main.bean.resources.CustomerResources;
@@ -77,41 +82,39 @@ public class CustomerRes {
 	}
 	
 	@RequestMapping(value = "/api/customerRes/getAllPurchasedCoupons", method = RequestMethod.GET)
-	public CustomerResources getAllPurchasedCoupons(HttpServletRequest request) throws SystemExceptionCoupoun {
+	public Collection<CouponResources> getAllPurchasedCoupons(HttpServletRequest request) throws SystemExceptionCoupoun {
 		CustomerFacade customerFacade = this.getFacade(request);
 		System.out.println(request);
-//		Customer customer = customerFacade.getCustome();
-//		CustomerResources customerRes = map.mapCustomerToCustomerResources(customer);
-//		return customerRes;
-		return null;
+		Set<Coupon> couponList = customerFacade.getAllPurchasedCoupons();	
+		Collection<CouponResources> listCouponResources= map.mapCouponLestTolistCouponResources(couponList);
+		return listCouponResources;
 		
 	}
 	
 	@RequestMapping(value = "/api/customerRes/getAllPurchasedCouponsByType", method = RequestMethod.GET)
-	public CustomerResources getAllPurchasedCouponsByType(@RequestParam(value = "Type") String CouponByType,
+	public Collection<CouponResources> getAllPurchasedCouponsByType(@RequestParam(value = "Type") String CouponByType,
 			HttpServletRequest request) throws SystemExceptionCoupoun {
 		CustomerFacade customerFacade = this.getFacade(request);
 		System.out.println(request);
 		System.out.println("CouponByType :"+CouponByType);
-//		Customer customer = customerFacade.getCustome();
-//		CustomerResources customerRes = map.mapCustomerToCustomerResources(customer);
-//		return customerRes;
-		return null;
+		Set<Coupon> couponList = customerFacade.getAllPurchasedCouponsByType(CouponByType);	
+		Collection<CouponResources> listCouponResources= map.mapCouponLestTolistCouponResources(couponList);
+		return listCouponResources;
 		
 	}
 	
 	@RequestMapping(value = "/api/customerRes/getAllPurchasedCouponsByPrice", method = RequestMethod.GET)
-	public CustomerResources getAllPurchasedCouponsByPrice(@RequestParam(value = "Price") Double CouponPrice,
+	public Collection<CouponResources> getAllPurchasedCouponsByPrice(@RequestParam(value = "Price") Double CouponPrice,
 			HttpServletRequest request) throws SystemExceptionCoupoun {
 		CustomerFacade customerFacade = this.getFacade(request);
 		System.out.println(request);
 		System.out.println("CouponPrice :"+CouponPrice);
-//		Customer customer = customerFacade.getCustome();
-//		CustomerResources customerRes = map.mapCustomerToCustomerResources(customer);
-//		return customerRes;
-		return null;
+		Set<Coupon> couponList = customerFacade.getAllPurchasedCouponsByPrice(CouponPrice);	
+		Collection<CouponResources> listCouponResources= map.mapCouponLestTolistCouponResources(couponList);
+		return listCouponResources;
 		
 	}
+	
 	
 	
 }

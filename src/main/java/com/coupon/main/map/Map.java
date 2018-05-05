@@ -1,5 +1,9 @@
 package com.coupon.main.map;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Set;
+
 import org.springframework.stereotype.Component;
 
 import com.coupon.main.bean.Company;
@@ -38,10 +42,13 @@ public class Map {
 		System.out.println("mapCouponResourcesToCoupon");
 		Coupon CouponV1 = new Coupon();
 		CouponV1.setId(coupon.getId());
-//		Company companyResourcesV1 =mapCompanyResourcesToCompany(coupon.getCompany()); 
-//		System.out.println("coupon Get Company from rest"+coupon.getCompany());
-//		System.out.println("companyResourcesV1 after map "+companyResourcesV1);
-//		 CouponV1.setCompany(companyResourcesV1);
+		// Company companyResourcesV1
+		// =mapCompanyResourcesToCompany(coupon.getCompany());
+		// System.out.println("coupon Get Company from
+		// rest"+coupon.getCompany());
+		// System.out.println("companyResourcesV1 after map
+		// "+companyResourcesV1);
+		// CouponV1.setCompany(companyResourcesV1);
 		// CouponV1.setCustomers(coupon.getCustomers());
 		CouponV1.setType(coupon.getType());
 		CouponV1.setAmount(coupon.getAmount());
@@ -51,7 +58,7 @@ public class Map {
 		CouponV1.setPrice(coupon.getPrice());
 		CouponV1.setMessage(coupon.getMessage());
 		CouponV1.setTitle(coupon.getTitle());
-		System.out.println("mapCouponResourcesToCoupon :: END"+ CouponV1);
+		System.out.println("mapCouponResourcesToCoupon :: END" + CouponV1);
 		return CouponV1;
 	}
 
@@ -73,28 +80,44 @@ public class Map {
 		return CouponV1;
 
 	}
-	
-	
+
 	public CustomerResources mapCustomerToCustomerResources(Customer customer) {
 		System.out.println("mapCustomerToCustomerResources");
 		CustomerResources CustomerV1 = new CustomerResources();
 		CustomerV1.setCustName(customer.getCustName());
 		CustomerV1.setId(customer.getId());
 		CustomerV1.setPassword(customer.getPassword());
-//		CustomerV1.getCoupons();
+		// CustomerV1.getCoupons();
 		System.out.println("mapCustomerToCustomerResources : end");
 		return CustomerV1;
 
 	}
+
 	public Customer mapCustomerResourcesToCustomer(CustomerResources customerResources) {
 		System.out.println("mapCustomerResourcesToCustomer");
 		Customer CustomerV1 = new Customer();
 		CustomerV1.setCustName(customerResources.getCustName());
 		CustomerV1.setId(customerResources.getId());
 		CustomerV1.setPassword(customerResources.getPassword());
-//		CustomerV1.getCoupons();
+		// CustomerV1.getCoupons();
 		System.out.println("mapCustomerResourcesToCustomer : end");
 		return CustomerV1;
 
+	}
+
+	public Collection<CouponResources> mapCouponLestTolistCouponResources(Set<Coupon> couponList) {
+
+		ArrayList<Coupon> listCoupon = new ArrayList<Coupon>(couponList);
+		System.out.println(" reslt " + listCoupon);
+		Collection<CouponResources> listCouponResources = new ArrayList<CouponResources>();
+		System.out.println("listCoupon");
+		System.out.println("+++++++++++++++++++++++++++=");
+		System.out.println(listCoupon);
+		for (Coupon coupon : listCoupon) {
+			listCouponResources.add(mapCouponToCouponResources(coupon));
+		}
+		System.out.println(listCouponResources);
+
+		return listCouponResources;
 	}
 }

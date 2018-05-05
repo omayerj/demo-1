@@ -46,12 +46,16 @@ public class Coupon implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "COMPANY_id")
 	private Company company;
-	
-	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-//	@ManyToMany(fetch=FetchType.EAGER, cascade = {CascadeType.DETACH , CascadeType.MERGE, CascadeType.REFRESH})
-	@JoinTable(name = "CUSTOMER_Coupon", 
-		joinColumns = @JoinColumn(name = "coupon_id", referencedColumnName = "id"), 
-				inverseJoinColumns = @JoinColumn(name = "customer_id", referencedColumnName = "id"))
+	/**  
+	 * test the query change to map
+	 */
+//	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+////	@ManyToMany(fetch=FetchType.EAGER, cascade = {CascadeType.DETACH , CascadeType.MERGE, CascadeType.REFRESH})
+//	@JoinTable(name = "CUSTOMER_Coupon", 
+//		joinColumns = @JoinColumn(name = "coupon_id", referencedColumnName = "id"), 
+//				inverseJoinColumns = @JoinColumn(name = "customer_id", referencedColumnName = "id"))
+//	private Set<Customer> customers;
+	@ManyToMany(mappedBy = "coupons")
 	private Set<Customer> customers;
 
 	public Set<Customer> getCustomers() {

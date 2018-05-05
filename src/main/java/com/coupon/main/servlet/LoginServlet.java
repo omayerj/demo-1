@@ -39,8 +39,20 @@ public class LoginServlet {
 			switch (usertype)
 			{
 			case "company":
-//				response.sendRedirect("http://localhost:8080/Company/index.html");
-				response.sendRedirect("http://localhost:4200/");
+//				response.setContentType("text/html");
+//			    PrintWriter out = response.getWriter();
+//			    out.println("<html>");
+//			    out.println("<head>");
+//			    out.println("<title>Hola</title>");
+//			    out.println("</head>");
+//			    out.println("<body bgcolor=\"white\">");
+//			    out.println("<h2>sdsad");
+//			    out.println("</h2>");
+//			    out.println("</body>");
+//			    out.println("</html>");
+		
+				response.sendRedirect("http://localhost:8080/Company/index.html");
+				
 
 				break;
 			case "customer":

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.coupon.main.bean.Coupon;
 import com.coupon.main.bean.CouponType;
+import com.coupon.main.bean.Customer;
 @Repository
 public interface CouponRepo extends CrudRepository<Coupon, Integer> {
 	@Query("SELECT t FROM Coupon t where t.id = :id") 
@@ -34,6 +35,14 @@ public interface CouponRepo extends CrudRepository<Coupon, Integer> {
 	
 	@Query("SELECT c FROM Coupon c where  c.company.id =:companyId and c.endDate <=:endDate") 
 	Set<Coupon> findLessEndDate(@Param("endDate") Date endDate,@Param("companyId") long id);
+	
+	@Query("select t from Coupon t join t.customers u where u.id = :customerId")
+	Set<Coupon> findAllPurchasedCoupons(@Param("customerId")long customerId);
+	@Query("select t from Coupon t join t.customers u where u.id = :customerId AND t.type=:couponType")
+	Set<Coupon> findAllPurchasedCouponsByType(@Param("customerId")long id, @Param("couponType")CouponType couponType);
+	
+	@Query("select t from Coupon t join t.customers u where u.id = :customerId AND t.price <=:Price")
+	Set<Coupon> findAllPurchasedCouponsByPrice(@Param("customerId")long id, @Param("Price")Double couponPrice);
 	
 //	@Query("SELECT c FROM Coupon c where  c.company.id =:companyId and c.price =:priceCoupon") 
 //	Set<Coupon> findLessOfPrice(@Param("priceCoupon") double price,@Param("companyId") long id);

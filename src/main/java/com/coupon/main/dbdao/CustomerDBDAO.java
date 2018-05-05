@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.coupon.main.bean.Coupon;
+import com.coupon.main.bean.CouponType;
 import com.coupon.main.bean.Customer;
 import com.coupon.main.dao.CustomerDAO;
 import com.coupon.main.exception.SystemExceptionCoupoun;
@@ -100,8 +101,6 @@ public class CustomerDBDAO implements CustomerDAO {
 		return loginCustomer;
 	}
 
-	private static final DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
 	public Set<Coupon> purchaseCoupon(Customer customer, Coupon coupon) throws SystemExceptionCoupoun {
 		System.out.println("CustomerDBDAO::purchaseCoupon");
 		Coupon couponDB = couponRepo.findbyId(coupon.getId());
@@ -121,11 +120,44 @@ public class CustomerDBDAO implements CustomerDAO {
 		if (sqlDateNow.after(couponDB.getEndDate())) {
 			throw new SystemExceptionCoupoun("the coupon expired");
 		}
-
+		System.out.println();
+		Set<Customer> customerSet = customerRepo.findCustmerHasCoupon(couponDB.getId(), customer.getId());
+		System.out.println("customerSet.isEmpty() ::" + customerSet.isEmpty());
+		if (!customerSet.isEmpty()) {
+			throw new SystemExceptionCoupoun("you have this Coupon");
+		}
+		Set<Coupon> couponListBeforeInsertToDB = customer.getCoupons();
+		couponListBeforeInsertToDB.add(couponDB);
+		customer.setCoupons(couponListBeforeInsertToDB);
 		customerRepo.save(customer);
-		Customer dbcustomer = customerRepo.findBycustName(customer.getCustName());
-		System.out.println("dbcustomer  ==>" + dbcustomer);
-		System.out.println("dbcustomer Coupon " + dbcustomer.getCoupons());
-		return null;
+		System.out.println("customer in db after purchaseCoupon:"+customer);
+		return couponListBeforeInsertToDB;
+	}
+
+	public Set<Coupon>  AllPurchasedCoupons(Customer thisCustomer) {
+	System.out.println("CustomerDBDAO:AllPurchasedCoupons");
+	System.out.println("Customer :"+thisCustomer);
+	Set<Coupon> purchasedCoupon = couponRepo.findAllPurchasedCoupons(thisCustomer.getId());
+	System.out.println("purchasedCoupon :"+purchasedCoupon);
+		return purchasedCoupon;
+		
+	}
+
+	public Set<Coupon> getAllPurchasedCouponsByType(Customer thisCustomer, CouponType couponType) {
+		System.out.println("CustomerDBDAO:getAllPurchasedCouponsByType");
+		System.out.println("Customer :"+thisCustomer);
+		System.out.println("couponType :"+couponType);
+		Set<Coupon> purchasedCoupon = couponRepo.findAllPurchasedCouponsByType(thisCustomer.getId(),couponType);
+		System.out.println("purchasedCoupon :"+purchasedCoupon);
+			return purchasedCoupon;
+	}
+
+	public Set<Coupon> getAllPurchasedCouponsByPrice(Customer thisCustomer, Double couponPrice) {
+		System.out.println("CustomerDBDAO:getAllPurchasedCouponsByPrice");
+		System.out.println("Customer :"+thisCustomer);
+		System.out.println("couponPrice :"+couponPrice);
+		Set<Coupon> purchasedCoupon = couponRepo.findAllPurchasedCouponsByPrice(thisCustomer.getId(),couponPrice);
+		System.out.println("purchasedCoupon :"+purchasedCoupon);
+			return purchasedCoupon;
 	}
 }
