@@ -3,11 +3,13 @@ package com.coupon.main.repository;
 import java.sql.Date;
 import java.util.Set;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.coupon.main.bean.Coupon;
 import com.coupon.main.bean.CouponType;
@@ -43,6 +45,12 @@ public interface CouponRepo extends CrudRepository<Coupon, Integer> {
 	
 	@Query("select t from Coupon t join t.customers u where u.id = :customerId AND t.price <=:Price")
 	Set<Coupon> findAllPurchasedCouponsByPrice(@Param("customerId")long id, @Param("Price")Double couponPrice);
+	
+	
+	@Modifying
+	@Transactional(readOnly=false)
+	@Query("DELETE from Coupon c  WHERE c.company.id =:companyId ") 
+	void deleteAllByCompanyId(@Param("companyId")long id);
 	
 //	@Query("SELECT c FROM Coupon c where  c.company.id =:companyId and c.price =:priceCoupon") 
 //	Set<Coupon> findLessOfPrice(@Param("priceCoupon") double price,@Param("companyId") long id);

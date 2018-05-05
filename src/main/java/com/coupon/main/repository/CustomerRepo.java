@@ -2,10 +2,12 @@ package com.coupon.main.repository;
 
 import java.util.Set;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.coupon.main.bean.Coupon;
 import com.coupon.main.bean.Customer;
@@ -28,6 +30,15 @@ public interface CustomerRepo extends CrudRepository<Customer, Integer> {
 
 	@Query("select t from CUSTOMER t join t.coupons u where u.id = :couponId")
 	Set<Customer> findAllByUsername(@Param("couponId")long couponId);
+	
+	
+	@Modifying
+	@Transactional(readOnly=false)
+	@Query("UPDATE CUSTOMER c SET c.password=:password WHERE c.id = :id ") 
+	void updateCustomer(@Param("id")long id,@Param("password") String password);
+
+	@Query("select t from CUSTOMER t ")
+	Set<Customer> findAllCustomers();
 	
 //	 cc where cc.customerId = :username
 //	@Query("SELECT c FROM Coupon c where  c.company.id =:companyId and c.price <=:priceCoupon") 

@@ -1,14 +1,12 @@
 package com.coupon.main.dbdao;
 
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.coupon.main.bean.Company;
 import com.coupon.main.bean.Coupon;
 import com.coupon.main.bean.CouponType;
 import com.coupon.main.bean.Customer;
@@ -28,55 +26,54 @@ public class CustomerDBDAO implements CustomerDAO {
 	@Override
 	public void createCustomer(Customer c) throws SystemExceptionCoupoun {
 		System.out.println("createCustomer");
-
-		// PreparedStatement preparedStatement =
-		// conn.prepareStatement(CustomerSQLQueries.CREATE_CUSTOMER);
+		System.out.println();
+		Customer customerNameCheck = customerRepo.findBycustName(c.getCustName());
+		if (customerNameCheck != null) {
+			throw new SystemExceptionCoupoun("the customer name is exists ");
+		}
+		customerRepo.save(c);
+		System.out.println("createCustomer :)");
 
 	}
 
 	@Override
 	public void removeCustomer(Customer c) throws SystemExceptionCoupoun {
-		System.out.println("removeCustomer");
-
-		// PreparedStatement preparedStatement =
-		// conn.prepareStatement(CompanySQLQueries.REMOVE_COMPANY);
-
+		System.out.println("CustomerDBDAO::removeCustomer");
+		customerRepo.delete(c);
 	}
 
 	@Override
-	public void updateCustomer(Customer c) throws SystemExceptionCoupoun {
-		System.out.println("updateCustomer");
-
-		// PreparedStatement preparedStatement =
-		// conn.prepareStatement(CustomerSQLQueries.UPDATE_CUSTOMER);
-
+	public Customer updateCustomer(Customer c) throws SystemExceptionCoupoun {
+		System.out.println("CustomerDBDAO::updateCustomer");
+		System.out.println("before update :" + c);
+		customerRepo.updateCustomer(c.getId(), c.getPassword());
+		Customer customerUP = customerRepo.findByid(c.getId());
+		System.out.println("companyUP : " + customerUP);
+		return customerUP;
 	}
 
 	@Override
 	public Customer getCustomer(long id) throws SystemExceptionCoupoun {
-
 		System.out.println("getCompanyByID");
-
-		// PreparedStatement preparedStatement =
-		// conn.prepareStatement(CustomerSQLQueries.GET_CUSTOMER_BY_ID);
-
-		return null;
+		Customer customerUP = customerRepo.findByid(id);
+		return customerUP;
 	}
 
 	@Override
-	public Collection<Customer> getAllCustomers() throws SystemExceptionCoupoun {
+	public Set<Customer> getAllCustomers() throws SystemExceptionCoupoun {
 
-		// rs = stmt.executeQuery(CustomerSQLQueries.GET_ALL_CUSTOMERS);
-		return null;
+		Set<Customer> listCompany= customerRepo.findAllCustomers();
+		System.out.println("list :" + listCompany);
+		return listCompany;
 	}
 
 	@Override
 	public Collection<Coupon> getCoupons() throws SystemExceptionCoupoun {
 		System.out.println("Coupons for custmer");
 
-		// rs = stmt.executeQuery(CustomerSQLQueries.GET_ALL_CUSTOMERS);
-
-		return null;
+		Collection<Coupon> allCoupon =(Collection<Coupon>) couponRepo.findAll();
+		
+		return allCoupon;
 	}
 
 	@Override
@@ -105,7 +102,6 @@ public class CustomerDBDAO implements CustomerDAO {
 		System.out.println("CustomerDBDAO::purchaseCoupon");
 		Coupon couponDB = couponRepo.findbyId(coupon.getId());
 		System.out.println("couponDB  " + couponDB);
-		// TODO
 		int amount = couponDB.getAmount();
 		if (amount == 0) {
 			throw new SystemExceptionCoupoun("the coupon out of stock");

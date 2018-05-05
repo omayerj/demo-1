@@ -1,5 +1,7 @@
 package com.coupon.main.repository;
 
+import java.util.Set;
+
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -25,6 +27,10 @@ public interface CompanyRepo extends CrudRepository<Company, Integer> {
 	@Transactional(readOnly=false)
 	@Query("UPDATE COMPANY c SET c.email =:email, c.password=:password WHERE c.id = :id ") 
 	int  updateCompany(@Param("id")long id,@Param("email") String email,@Param("password") String password);
+	
+	@Query("SELECT t FROM COMPANY t") 
+	Set<Company> findAllCompanies();
+	
 	
 	
 //	@Modifying

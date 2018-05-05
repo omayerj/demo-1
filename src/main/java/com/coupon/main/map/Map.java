@@ -2,6 +2,7 @@ package com.coupon.main.map;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.stereotype.Component;
@@ -119,5 +120,37 @@ public class Map {
 		System.out.println(listCouponResources);
 
 		return listCouponResources;
+	}
+
+	public Collection<CompanyResources> mapcompanyListTolistCompanyResources(Set<Company> companyList) {
+		System.out.println("mapCouponLestTolistCouponResources");
+		ArrayList<Company> listCompany = new ArrayList<Company>(companyList);
+		System.out.println(" reslt " + listCompany);
+		Collection<CompanyResources> listCompanyResources = new ArrayList<CompanyResources>();
+		System.out.println("listCoupon");
+		System.out.println("+++++++++++++++++++++++++++=");
+		System.out.println(listCompany);
+		for (Company company : listCompany) {
+			listCompanyResources.add(mapCompanyToCompanyResources(company));
+		}
+		System.out.println(listCompanyResources);
+
+		return listCompanyResources;
+	}
+
+	public Collection<CustomerResources> mapCustomerListTolistCustomerResources(Set<Customer> customerList) {
+		System.out.println("mapCouponLestTolistCouponResources");
+		ArrayList<Customer> listCustomer = new ArrayList<Customer>(customerList);
+		System.out.println(" reslt " + listCustomer);
+		Collection<CustomerResources> listCustomerResources = new ArrayList<CustomerResources>();
+		System.out.println("listCoupon");
+		System.out.println("+++++++++++++++++++++++++++=");
+		System.out.println(listCustomer);
+		for (Customer customer : listCustomer) {
+			listCustomerResources.add(mapCustomerToCustomerResources(customer));
+		}
+		System.out.println(listCustomerResources);
+
+		return listCustomerResources;
 	}
 }
