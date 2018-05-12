@@ -39,16 +39,10 @@ public class CustomerRes {
 
 		CouponClientFacade couponClientFacade = customerFacade.login("cust", "1234");
 		return (CustomerFacade) couponClientFacade;
-		// CompanyFacade facade = (CompanyFacade)
-		// request.getSession().getAttribute("facade");
-		// System.out.println("CustomerRes::getFacade");
-		// System.out.println(facade.toString());
-		// if (facade == null)
-		// {
-		// System.out.println("null");
-		// return null;
-		// }
-		// return facade;
+//		System.out.println(request.getSession().getAttribute("facade"));
+//		CouponClientFacade facade = (CouponClientFacade)
+//		 request.getSession().getAttribute("facade");
+//		return (CustomerFacade)facade;
 
 	}
 

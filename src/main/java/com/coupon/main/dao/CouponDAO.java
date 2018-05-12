@@ -18,11 +18,11 @@ public interface CouponDAO {
 
 	Coupon getCoupon(long id) throws SystemExceptionCoupoun;
 
-	Collection<Coupon> getCouponByType(CouponType type) throws SystemExceptionCoupoun;
-
 	Coupon getCouponByTitle(String title) throws SystemExceptionCoupoun;
 
 	Collection<Coupon> getAllCoupon(long id) throws SystemExceptionCoupoun;
 
 	Collection<Coupon> getCouponsByMaxPrice(Company company, double price) throws SystemExceptionCoupoun;
+
+	Collection<Coupon> getCouponByType(CouponType type, long id) throws SystemExceptionCoupoun;
 }

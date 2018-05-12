@@ -73,16 +73,17 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular_webstorage_service__ = __webpack_require__("./node_modules/angular-webstorage-service/bundles/angular-webstorage-service.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__("./src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__header_header_component__ = __webpack_require__("./src/app/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__navbar_navbar_component__ = __webpack_require__("./src/app/navbar/navbar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__menu_menu_component__ = __webpack_require__("./src/app/menu/menu.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__main_main_component__ = __webpack_require__("./src/app/main/main.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__footer_footer_component__ = __webpack_require__("./src/app/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__create_coupns_create_coupns_component__ = __webpack_require__("./src/app/create-coupns/create-coupns.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__sort_coupns_sort_coupns_component__ = __webpack_require__("./src/app/sort-coupns/sort-coupns.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__coupns_coupns_component__ = __webpack_require__("./src/app/coupns/coupns.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__server_webapi_service__ = __webpack_require__("./src/app/server/webapi.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__routes__ = __webpack_require__("./src/app/routes.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__("./src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__header_header_component__ = __webpack_require__("./src/app/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__navbar_navbar_component__ = __webpack_require__("./src/app/navbar/navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__menu_menu_component__ = __webpack_require__("./src/app/menu/menu.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__main_main_component__ = __webpack_require__("./src/app/main/main.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__footer_footer_component__ = __webpack_require__("./src/app/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__create_coupns_create_coupns_component__ = __webpack_require__("./src/app/create-coupns/create-coupns.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__sort_coupns_sort_coupns_component__ = __webpack_require__("./src/app/sort-coupns/sort-coupns.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__coupns_coupns_component__ = __webpack_require__("./src/app/coupns/coupns.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__server_webapi_service__ = __webpack_require__("./src/app/server/webapi.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -107,60 +108,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__header_header_component__["a" /* HeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__navbar_navbar_component__["a" /* NavbarComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__menu_menu_component__["a" /* MenuComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__main_main_component__["a" /* MainComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__footer_footer_component__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__create_coupns_create_coupns_component__["a" /* CreateCoupnsComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__sort_coupns_sort_coupns_component__["a" /* SortCoupnsComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__coupns_coupns_component__["a" /* CoupnsComponent */]
+                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__header_header_component__["a" /* HeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__navbar_navbar_component__["a" /* NavbarComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__menu_menu_component__["a" /* MenuComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__main_main_component__["a" /* MainComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__footer_footer_component__["a" /* FooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__create_coupns_create_coupns_component__["a" /* CreateCoupnsComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__sort_coupns_sort_coupns_component__["a" /* SortCoupnsComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__coupns_coupns_component__["a" /* CoupnsComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_3_angular_webstorage_service__["a" /* StorageServiceModule */],
                 __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* RouterModule */].forRoot([
-                    {
-                        path: 'Company',
-                        // component: MainComponent,
-                        children: [
-                            {
-                                path: 'home',
-                                component: __WEBPACK_IMPORTED_MODULE_10__main_main_component__["a" /* MainComponent */]
-                            },
-                            {
-                                path: 'createCoupns',
-                                component: __WEBPACK_IMPORTED_MODULE_12__create_coupns_create_coupns_component__["a" /* CreateCoupnsComponent */]
-                            },
-                            {
-                                path: 'sortCoupns',
-                                component: __WEBPACK_IMPORTED_MODULE_13__sort_coupns_sort_coupns_component__["a" /* SortCoupnsComponent */]
-                            },
-                            {
-                                path: 'coupns',
-                                component: __WEBPACK_IMPORTED_MODULE_14__coupns_coupns_component__["a" /* CoupnsComponent */]
-                            },
-                            {
-                                path: '',
-                                component: __WEBPACK_IMPORTED_MODULE_10__main_main_component__["a" /* MainComponent */]
-                            }
-                        ]
-                    }, {
-                        path: '', redirectTo: '/Company', pathMatch: 'full'
-                    }
-                ])
+                __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__routes__["a" /* appRoutes */])
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_15__server_webapi_service__["a" /* WebapiService */]],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_16__server_webapi_service__["a" /* WebapiService */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -180,7 +153,7 @@ module.exports = ""
 /***/ "./src/app/coupns/coupns.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>\n  coupons</h1>\n<div class=\"ui middle aligned divided list\">\n  <div class=\"item\" *ngFor=\"let coupon of Coupons\">\n    <div class=\"right floated content\">\n      <div class=\"ui button\" (click)=\"UpdateButton($event)\">Update</div>\n    </div>\n    <div class=\"right floated content\">\n      <div class=\"ui button\" (click)=\"RemoveButton($event)\">Remove</div>\n    </div>\n    <div class=\"ui big horizontal divided list\">\n      <!-- <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.id}}</div>\n        </div>\n      </div> -->\n      <!--  -->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.title}}</div>\n        </div>\n      </div>\n      <!--begin-->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.message}}</div>\n        </div>\n      </div>\n      <!-- end -->\n          <!--begin-->\n          <div class=\"item\">\n              <div class=\"content\">\n                <div class=\"header\"> {{coupon.startDate}}</div>\n              </div>\n            </div>\n            <!-- end -->\n      <!--begin-->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.endDate}}</div>\n        </div>\n      </div>\n      <!-- end -->\n      <!--begin-->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.amount}}</div>\n        </div>\n      </div>\n      <!-- end -->\n      <!--begin-->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.price}}</div>\n        </div>\n      </div>\n      <!-- end -->\n      <!--begin-->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.type}}</div>\n        </div>\n      </div>\n      <!-- end -->\n\n    </div>\n  </div>\n</div>\n\n\n"
+module.exports = "<h1>\n  coupons</h1>\n<div class=\"ui middle aligned divided list\">\n  <div class=\"item\" *ngFor=\"let coupon of Coupons\">\n    <div class=\"right floated content\">\n      <div class=\"ui button\" (click)=\"UpdateButton($event,coupon)\">Update</div>\n    </div>\n    <div class=\"right floated content\">\n      <div class=\"ui button\" (click)=\"RemoveButton($event,coupon)\">Remove</div>\n    </div>\n    <div class=\"ui big horizontal divided list\">\n      <!-- <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.id}}</div>\n        </div>\n      </div> -->\n      <!--  -->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.title}}</div>\n        </div>\n      </div>\n      <!--begin-->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.message}}</div>\n        </div>\n      </div>\n      <!-- end -->\n          <!--begin-->\n          <div class=\"item\">\n              <div class=\"content\">\n                <div class=\"header\"> {{coupon.startDate}}</div>\n              </div>\n            </div>\n            <!-- end -->\n      <!--begin-->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.endDate}}</div>\n        </div>\n      </div>\n      <!-- end -->\n      <!--begin-->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.amount}}</div>\n        </div>\n      </div>\n      <!-- end -->\n      <!--begin-->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.price}}</div>\n        </div>\n      </div>\n      <!-- end -->\n      <!--begin-->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.type}}</div>\n        </div>\n      </div>\n      <!-- end -->\n\n    </div>\n  </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -217,11 +190,13 @@ var CoupnsComponent = (function () {
             });
         });
     };
-    CoupnsComponent.prototype.UpdateButton = function (event) {
+    CoupnsComponent.prototype.UpdateButton = function (event, coupon) {
         console.log("UpdateButton " + event);
+        console.log("coupon " + coupon);
     };
-    CoupnsComponent.prototype.RemoveButton = function (event) {
+    CoupnsComponent.prototype.RemoveButton = function (event, coupon) {
         console.log("RemoveButton " + event);
+        console.log("coupon " + coupon);
     };
     CoupnsComponent.prototype.getMaxPriceFromCopany = function (MaxPrice) {
         var _this = this;
@@ -541,7 +516,7 @@ module.exports = "/* Style the top navigation bar */\r\n.navbar {\r\n    overflo
 /***/ "./src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"navbar\">\n  <a routerLink=\"Company/home\" routerLinkActive='active' >Home Page</a>\n  <a routerLink=\"Company/coupns\" routerLinkActive='active'>Coupns</a>\n  <a routerLink=\"Company/sortCoupns\" routerLinkActive='active'>Sort Coupns</a>\n  <a routerLink=\"Company/createCoupns\" routerLinkActive='active'>Create Coupns</a>\n  <a href=\"#\" class=\"right\">log Out</a>\n</div>"
+module.exports = "\n<div class=\"navbar\">\n  <a routerLink=\"Company/home\" routerLinkActive='active' >Home Page</a>\n  <a routerLink=\"Company/coupns\" routerLinkActive='active'>Coupns</a>\n  <a routerLink=\"Company/sortCoupns\" routerLinkActive='active'>Sort Coupns</a>\n  <a routerLink=\"Company/createCoupns\" routerLinkActive='active'>Create Coupns</a>\n  <a href=\"#\" class=\"right\" (click)=\"logOut($event)\">log Out</a>\n</div>"
 
 /***/ }),
 
@@ -551,6 +526,7 @@ module.exports = "\n<div class=\"navbar\">\n  <a routerLink=\"Company/home\" rou
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavbarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__server_webapi_service__ = __webpack_require__("./src/app/server/webapi.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -561,10 +537,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var NavbarComponent = (function () {
-    function NavbarComponent() {
+    function NavbarComponent(webapiService) {
+        this.webapiService = webapiService;
     }
     NavbarComponent.prototype.ngOnInit = function () {
+    };
+    NavbarComponent.prototype.logOut = function (event) {
+        console.log("logOut " + event);
+        this.webapiService.logout().subscribe(function (res) {
+            console.log(res);
+        });
     };
     NavbarComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -572,11 +556,58 @@ var NavbarComponent = (function () {
             template: __webpack_require__("./src/app/navbar/navbar.component.html"),
             styles: [__webpack_require__("./src/app/navbar/navbar.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__server_webapi_service__["a" /* WebapiService */]])
     ], NavbarComponent);
     return NavbarComponent;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/routes.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return appRoutes; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__main_main_component__ = __webpack_require__("./src/app/main/main.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__create_coupns_create_coupns_component__ = __webpack_require__("./src/app/create-coupns/create-coupns.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sort_coupns_sort_coupns_component__ = __webpack_require__("./src/app/sort-coupns/sort-coupns.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__coupns_coupns_component__ = __webpack_require__("./src/app/coupns/coupns.component.ts");
+
+
+
+
+var appRoutes = [
+    {
+        path: 'Company',
+        // component: MainComponent,
+        children: [
+            {
+                path: 'home',
+                component: __WEBPACK_IMPORTED_MODULE_0__main_main_component__["a" /* MainComponent */]
+            },
+            {
+                path: 'createCoupns',
+                component: __WEBPACK_IMPORTED_MODULE_1__create_coupns_create_coupns_component__["a" /* CreateCoupnsComponent */]
+            },
+            {
+                path: 'sortCoupns',
+                component: __WEBPACK_IMPORTED_MODULE_2__sort_coupns_sort_coupns_component__["a" /* SortCoupnsComponent */]
+            },
+            {
+                path: 'coupns',
+                component: __WEBPACK_IMPORTED_MODULE_3__coupns_coupns_component__["a" /* CoupnsComponent */]
+            },
+            {
+                path: '',
+                component: __WEBPACK_IMPORTED_MODULE_0__main_main_component__["a" /* MainComponent */]
+            }
+        ]
+    }, {
+        path: '', redirectTo: '/Company', pathMatch: 'full'
+    }
+];
 
 
 /***/ }),
@@ -628,6 +659,9 @@ var WebapiService = (function () {
     };
     WebapiService.prototype.createCoupon = function (Coupon) {
         return this.http.post(this.rootUrl + 'api/companyres/createCoupon', Coupon).map(function (res) { return res.json(); });
+    };
+    WebapiService.prototype.logout = function () {
+        return this.http.post(this.rootUrl + '/api/logout', null).map(function (res) { return res.json(); });
     };
     WebapiService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),

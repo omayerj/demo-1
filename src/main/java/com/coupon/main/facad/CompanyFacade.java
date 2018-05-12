@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.sql.Date;
 
 import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -110,7 +111,7 @@ public class CompanyFacade implements CouponClientFacade {
 		System.out.println("CompanyFacade::getCompanyByType");
 		System.out.println("this Company : " + thisCompany);
 		CouponType couponType =   CouponType.valueOf(type);
-		Collection<Coupon> listCoupon = couponDBDAO.getCouponByType(couponType);
+		Collection<Coupon> listCoupon = couponDBDAO.getCouponByType(couponType,thisCompany.getId());
 		System.out.println(" ID : " + thisCompany.getId());
 		System.out.println("listCoupon : " + listCoupon);
 		return listCoupon;
@@ -137,15 +138,7 @@ public class CompanyFacade implements CouponClientFacade {
 	public Collection<Coupon> getCouponsByMaxPrice( double price) throws SystemExceptionCoupoun {
 		System.out.println("CompanyFacade::getCouponsByMaxPrice");
 		System.out.println("this Company : " + thisCompany);
-//		Collection<Coupon> listCoupon = couponDBDAO.getCouponsByMaxPrice(thisCompany,price);
-//		Collection<Coupon> listCoupon = couponDBDAO.getAllCoupon(thisCompany.getId());
 		Collection<Coupon> listCoupon = couponDBDAO.getCouponsByMaxPrice(thisCompany, price);
-//		ArrayList<Coupon> Couponlist = new ArrayList<Coupon>(listCoupon);
-//		System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7");
-//		Set<Coupon> setOfPriceLess =  Couponlist.stream().filter(c -> c.getPrice()<=price).collect(Collectors.toSet());
-//		System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7");
-//		System.out.println("listOfPriceLess"+setOfPriceLess);
-//		System.out.println(" ID : " + thisCompany.getId());
 		return listCoupon;
 	}
 	public Company getCompany( ) throws SystemExceptionCoupoun {
@@ -156,6 +149,15 @@ public class CompanyFacade implements CouponClientFacade {
 		System.out.println("CompanyFacade::removeCoupon");	
 		System.out.println("coupon :"+coupon);
 		couponDBDAO.removeCoupon(coupon);
+	}
+	
+	public Collection<Coupon> getCompanyByEndDate(Date EndDate) throws SystemExceptionCoupoun {
+		System.out.println("CompanyFacade::getCompanyByEndDate");
+		System.out.println("this Company : " + thisCompany);
+		Collection<Coupon> listCoupon = couponDBDAO.getCouponByEndDate(EndDate,thisCompany.getId());
+		System.out.println(" ID : " + thisCompany.getId());
+		System.out.println("listCoupon : " + listCoupon);
+		return listCoupon;
 	}
 	
 }

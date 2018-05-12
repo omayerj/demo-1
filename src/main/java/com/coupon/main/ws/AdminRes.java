@@ -19,6 +19,7 @@ import com.coupon.main.bean.resources.CompanyResources;
 import com.coupon.main.bean.resources.CustomerResources;
 import com.coupon.main.exception.SystemExceptionCoupoun;
 import com.coupon.main.facad.AdministratorFacade;
+import com.coupon.main.facad.CompanyFacade;
 import com.coupon.main.facad.CouponClientFacade;
 import com.coupon.main.map.Map;
 
@@ -37,16 +38,10 @@ public class AdminRes {
 
 		CouponClientFacade couponClientFacade = administratorFacade.login("Admin", "1234");
 		return (AdministratorFacade) couponClientFacade;
-		// CompanyFacade facade = (AdministratorFacade)
-		// request.getSession().getAttribute("facade");
-		// System.out.println("AdminRes::getFacade");
-		// System.out.println(facade.toString());
-		// if (facade == null)
-		// {
-		// System.out.println("null");
-		// return null;
-		// }
-		// return facade;
+//		System.out.println(request.getSession().getAttribute("facade"));
+//		CouponClientFacade facade = (CouponClientFacade)
+//		 request.getSession().getAttribute("facade");
+//		return (AdministratorFacade)facade;
 
 	}
 
@@ -154,6 +149,15 @@ public class AdminRes {
 		System.out.println("customrerId :" + customrerId);
 		Customer customerV1 = AdminFacade.getCustomrerById(customrerId);
 		return map.mapCustomerToCustomerResources(customerV1);
+	}
+	
+	@RequestMapping(value = "/api/logout", method = RequestMethod.POST)
+	public void logout(HttpServletRequest request)
+			throws SystemExceptionCoupoun {
+		System.out.println("logout");
+		CouponClientFacade facade = this.getFacade(request);
+		System.out.println("request :" + request);
+		request.getSession().removeAttribute("facade");
 	}
 
 }

@@ -2,6 +2,7 @@ package com.coupon.main.dbdao;
 
 import java.util.Collection;
 import java.util.Set;
+import java.sql.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -43,7 +44,9 @@ public class CouponDBDAO implements CouponDAO {
 	@Override
 	public void removeCoupon(Coupon c) throws SystemExceptionCoupoun {
 		System.out.println("CouponDBDAO::removeCoupon");
-		couponRepo.delete(c);
+		couponRepo.deletebyId(c.getId());
+		System.out.println(couponRepo.findBycompany_id(5));
+		System.out.println("CouponDBDAO::removeCoupon");
 
 	}
 
@@ -63,11 +66,9 @@ public class CouponDBDAO implements CouponDAO {
 			throw new SystemExceptionCoupoun("the title is exists ");
 		}
 
-		else {
 			System.out.println("updateCoupon");
 			System.out.println(c);
 			couponRepo.save(c);
-		}
 
 	}
 
@@ -93,9 +94,9 @@ public class CouponDBDAO implements CouponDAO {
 	}
 
 	@Override
-	public Collection<Coupon> getCouponByType(CouponType type) throws SystemExceptionCoupoun {
+	public Collection<Coupon> getCouponByType(CouponType type, long id) throws SystemExceptionCoupoun {
 		System.out.println("CouponDBDAO::getCouponByType");
-		Set<Coupon> couponSet =couponRepo.findBytype(type);
+		Set<Coupon> couponSet =couponRepo.findBytypeOfCompany(type,id);
 		couponSet.isEmpty();
 		System.out.println(couponSet);
 		System.out.println("couponSet.isEmpty() ::" + couponSet.isEmpty());
@@ -119,6 +120,18 @@ public class CouponDBDAO implements CouponDAO {
 		Set<Coupon> couponSet =couponRepo.findLessOfPrice(price,company.getId() );
 		System.out.println("couponSet LessOfPrice " +price+" "+couponSet);
 		System.out.println("couponSet ::"+couponSet);
+		return couponSet;
+	}
+	
+	public Collection<Coupon> getCouponByEndDate(Date endDate, long id) throws SystemExceptionCoupoun {
+		System.out.println("CouponDBDAO::getCouponByEndDate");
+		Set<Coupon> couponSet =couponRepo.findLessEndDate(endDate,id);
+		couponSet.isEmpty();
+		System.out.println(couponSet);
+		System.out.println("couponSet.isEmpty() ::" + couponSet.isEmpty());
+		// PreparedStatement preparedStatement =
+		// conn.prepareStatement(CouponSQLQueries.GET_COUPON_BY_TYPE);
+
 		return couponSet;
 	}
 

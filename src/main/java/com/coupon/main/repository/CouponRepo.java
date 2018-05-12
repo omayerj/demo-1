@@ -22,6 +22,9 @@ public interface CouponRepo extends CrudRepository<Coupon, Integer> {
 	Set<Coupon> findBytitle(String title);
 	
 	Set<Coupon> findBytype(CouponType type);
+
+	
+
 	
 	Set<Coupon> findBycompany_id(long id);
 	
@@ -31,6 +34,8 @@ public interface CouponRepo extends CrudRepository<Coupon, Integer> {
 //	@Query("SELECT t.company.id FROM Coupon t ") 
 //	Set<Coupon> findbyCompanyIdaaa(@Param("id")long id);
 
+	@Query("SELECT c FROM Coupon c where  c.company.id =:companyId and c.type =:Type") 
+	Set<Coupon> findBytypeOfCompany(@Param("Type")CouponType type,@Param("companyId") long id);
 	
 	@Query("SELECT c FROM Coupon c where  c.company.id =:companyId and c.price <=:priceCoupon") 
 	Set<Coupon> findLessOfPrice(@Param("priceCoupon") double price,@Param("companyId") long id);
@@ -51,6 +56,10 @@ public interface CouponRepo extends CrudRepository<Coupon, Integer> {
 	@Transactional(readOnly=false)
 	@Query("DELETE from Coupon c  WHERE c.company.id =:companyId ") 
 	void deleteAllByCompanyId(@Param("companyId")long id);
+	@Modifying
+	@Transactional(readOnly=false)
+	@Query("DELETE from Coupon c  WHERE c.id =:id ") 
+	void deletebyId(@Param("id")long id);
 	
 //	@Query("SELECT c FROM Coupon c where  c.company.id =:companyId and c.price =:priceCoupon") 
 //	Set<Coupon> findLessOfPrice(@Param("priceCoupon") double price,@Param("companyId") long id);

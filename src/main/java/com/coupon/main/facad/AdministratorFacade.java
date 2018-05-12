@@ -23,7 +23,6 @@ public class AdministratorFacade implements CouponClientFacade {
 		System.out.println(" CustomerDBDAO::login");
 		System.out.println("userName : " + name + " password :" + password);
 		if (name.equals("Admin") && password.equals("1234")) {
-			// thisCustomer = customerDBDAO.
 			System.out.println("login pass :)");
 			return this;
 		}
