@@ -56,7 +56,7 @@ public class AdminRes {
 
 	}
 
-	@RequestMapping(value = "/api/administratorRes/removeCompany", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/api/administratorRes/removeCompany", method = RequestMethod.POST)
 	public void removeCompany(HttpServletRequest request, @RequestBody CompanyResources company)
 			throws SystemExceptionCoupoun {
 		AdministratorFacade AdminFacade = this.getFacade(request);
@@ -108,7 +108,7 @@ public class AdminRes {
 		AdminFacade.createCustomrer(map.mapCustomerResourcesToCustomer(customer));
 	}
 
-	@RequestMapping(value = "/api/administratorRes/removeCustomrer", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/api/administratorRes/removeCustomrer", method = RequestMethod.POST)
 	public void removeCustomrer(HttpServletRequest request, @RequestBody CustomerResources customer)
 			throws SystemExceptionCoupoun {
 		AdministratorFacade AdminFacade = this.getFacade(request);
