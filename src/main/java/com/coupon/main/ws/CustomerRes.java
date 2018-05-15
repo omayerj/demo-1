@@ -37,7 +37,7 @@ public class CustomerRes {
 	@SuppressWarnings("unused")
 	private CustomerFacade getFacade(HttpServletRequest request) throws SystemExceptionCoupoun {
 
-		CouponClientFacade couponClientFacade = customerFacade.login("cust", "1234");
+		CouponClientFacade couponClientFacade = customerFacade.login("cust", "1111");
 		return (CustomerFacade) couponClientFacade;
 //		System.out.println(request.getSession().getAttribute("facade"));
 //		CouponClientFacade facade = (CouponClientFacade)
@@ -46,11 +46,11 @@ public class CustomerRes {
 
 	}
 
-	@RequestMapping(value = "/api/customerRes/custome", method = RequestMethod.GET)
+	@RequestMapping(value = "/api/customerRes/customer", method = RequestMethod.GET)
 	public CustomerResources getCompany(HttpServletRequest request) throws SystemExceptionCoupoun {
 		CustomerFacade customerFacade = this.getFacade(request);
 		System.out.println(request);
-		Customer customer = customerFacade.getCustome();
+		Customer customer = customerFacade.getCustomer();
 		CustomerResources customerRes = map.mapCustomerToCustomerResources(customer);
 		return customerRes;
 	}
@@ -65,13 +65,12 @@ public class CustomerRes {
 		return customerRes;
 	}
 	@RequestMapping(value = "/api/customerRes/getCoupon", method = RequestMethod.GET)
-	public CustomerResources getCoupon(HttpServletRequest request) throws SystemExceptionCoupoun {
+	public Collection<CouponResources>  getCoupon(HttpServletRequest request) throws SystemExceptionCoupoun {
 		CustomerFacade customerFacade = this.getFacade(request);
 		System.out.println(request);
-//		Customer customer = customerFacade.getCustome();
-//		CustomerResources customerRes = map.mapCustomerToCustomerResources(customer);
-//		return customerRes;
-		return null;
+		Set<Coupon> couponList = customerFacade.getAllCoupons();	
+		Collection<CouponResources> listCouponResources= map.mapCouponLestTolistCouponResources(couponList);
+		return listCouponResources;
 		
 	}
 	

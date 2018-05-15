@@ -31,7 +31,7 @@ public class CustomerFacade implements CouponClientFacade {
 		return null;
 	}
 
-	public Customer getCustome() {
+	public Customer getCustomer() {
 		System.out.println("CustomerFacade::getCustome");
 		return thisCustomer;
 	}
@@ -66,6 +66,13 @@ public class CustomerFacade implements CouponClientFacade {
 		Set<Coupon> purchasedCouponsByPrice = customerDBDAO.getAllPurchasedCouponsByPrice(thisCustomer, couponPrice);
 
 		return purchasedCouponsByPrice;
+	}
+
+	public Set<Coupon> getAllCoupons() throws SystemExceptionCoupoun {
+		System.out.println("CustomerFacade::getAllCoupons");
+		Set<Coupon> allCoupons = customerDBDAO.getCoupons();
+
+		return allCoupons;
 	}
 
 }

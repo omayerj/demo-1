@@ -19,7 +19,7 @@ public interface CustomerDAO {
 
 	Set<Customer> getAllCustomers() throws SystemExceptionCoupoun;
 
-	Collection<Coupon> getCoupons() throws SystemExceptionCoupoun;
+	Set<Coupon> getCoupons() throws SystemExceptionCoupoun;
 
 	boolean login(String custName, String password) throws SystemExceptionCoupoun;
 

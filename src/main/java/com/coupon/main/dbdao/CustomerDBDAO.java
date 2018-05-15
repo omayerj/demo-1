@@ -68,10 +68,11 @@ public class CustomerDBDAO implements CustomerDAO {
 	}
 
 	@Override
-	public Collection<Coupon> getCoupons() throws SystemExceptionCoupoun {
+	public Set<Coupon> getCoupons() throws SystemExceptionCoupoun {
 		System.out.println("Coupons for custmer");
 
-		Collection<Coupon> allCoupon =(Collection<Coupon>) couponRepo.findAll();
+//		set<Coupon> allCoupon = couponRepo.findAll();
+		Set<Coupon> allCoupon = couponRepo.getallCoupons();
 		
 		return allCoupon;
 	}

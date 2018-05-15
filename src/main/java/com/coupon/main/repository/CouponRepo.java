@@ -45,11 +45,15 @@ public interface CouponRepo extends CrudRepository<Coupon, Integer> {
 	
 	@Query("select t from Coupon t join t.customers u where u.id = :customerId")
 	Set<Coupon> findAllPurchasedCoupons(@Param("customerId")long customerId);
+	
 	@Query("select t from Coupon t join t.customers u where u.id = :customerId AND t.type=:couponType")
 	Set<Coupon> findAllPurchasedCouponsByType(@Param("customerId")long id, @Param("couponType")CouponType couponType);
 	
 	@Query("select t from Coupon t join t.customers u where u.id = :customerId AND t.price <=:Price")
 	Set<Coupon> findAllPurchasedCouponsByPrice(@Param("customerId")long id, @Param("Price")Double couponPrice);
+	
+	@Query("SELECT c FROM Coupon c ") 
+	Set<Coupon> getallCoupons();
 	
 	
 	@Modifying
