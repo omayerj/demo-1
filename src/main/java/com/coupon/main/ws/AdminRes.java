@@ -36,12 +36,12 @@ public class AdminRes {
 
 	private AdministratorFacade getFacade(HttpServletRequest request) {
 
-		CouponClientFacade couponClientFacade = administratorFacade.login("Admin", "1234");
-		return (AdministratorFacade) couponClientFacade;
-//		System.out.println(request.getSession().getAttribute("facade"));
-//		CouponClientFacade facade = (CouponClientFacade)
-//		 request.getSession().getAttribute("facade");
-//		return (AdministratorFacade)facade;
+//		CouponClientFacade couponClientFacade = administratorFacade.login("Admin", "1234");
+//		return (AdministratorFacade) couponClientFacade;
+		System.out.println(request.getSession().getAttribute("facade"));
+		CouponClientFacade facade = (CouponClientFacade)
+		 request.getSession().getAttribute("facade");
+		return (AdministratorFacade)facade;
 
 	}
 

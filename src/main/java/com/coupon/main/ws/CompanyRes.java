@@ -49,12 +49,12 @@ public class CompanyRes {
 	@SuppressWarnings("unused")
 	private CompanyFacade getCompanyFacade(HttpServletRequest request) {
 
-		CouponClientFacade couponClientFacade = companyFacade.login("asddsaa", "123a");
-		return (CompanyFacade) couponClientFacade;
-//		System.out.println(request.getSession().getAttribute("facade"));
-//		CouponClientFacade facade = (CouponClientFacade)
-//		 request.getSession().getAttribute("facade");
-//		return (CompanyFacade)facade;
+//		CouponClientFacade couponClientFacade = companyFacade.login("asddsaa", "123a");
+//		return (CompanyFacade) couponClientFacade;
+		System.out.println(request.getSession().getAttribute("facade"));
+		CouponClientFacade facade = (CouponClientFacade)
+		 request.getSession().getAttribute("facade");
+		return (CompanyFacade)facade;
 
 	}
 

@@ -56,10 +56,10 @@ public class LoginServlet {
 
 				break;
 			case "customer":
-				response.sendRedirect("https://spring.io/guides/tutorials/bookmarks/");
+				response.sendRedirect("http://localhost:8080/Customer/index.html");
 				break;
 			case "administrator":
-				response.sendRedirect("https://spring.io/guides/tutorials/bookmarks/");
+				response.sendRedirect("http://localhost:8080/Admin/index.html");
 				break;
 			}
 		}

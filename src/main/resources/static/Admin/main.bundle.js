@@ -80,19 +80,23 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__menu_menu_component__ = __webpack_require__("./src/app/menu/menu.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__main_main_component__ = __webpack_require__("./src/app/main/main.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__footer_footer_component__ = __webpack_require__("./src/app/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__create_coupns_create_coupns_component__ = __webpack_require__("./src/app/create-coupns/create-coupns.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__coupns_coupns_component__ = __webpack_require__("./src/app/coupns/coupns.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__server_webapi_service__ = __webpack_require__("./src/app/server/webapi.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__updatecoupn_updatecoupn_component__ = __webpack_require__("./src/app/updatecoupn/updatecoupn.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__get_by_end_date_get_by_end_date_component__ = __webpack_require__("./src/app/get-by-end-date/get-by-end-date.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__get_by_price_get_by_price_component__ = __webpack_require__("./src/app/get-by-price/get-by-price.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__get_by_type_get_by_type_component__ = __webpack_require__("./src/app/get-by-type/get-by-type.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__server_webapi_service__ = __webpack_require__("./src/app/server/webapi.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__create_company_create_company_component__ = __webpack_require__("./src/app/create-company/create-company.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__create_customer_create_customer_component__ = __webpack_require__("./src/app/create-customer/create-customer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__companies_companies_component__ = __webpack_require__("./src/app/companies/companies.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__customers_customers_component__ = __webpack_require__("./src/app/customers/customers.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__company_company_component__ = __webpack_require__("./src/app/company/company.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__customer_customer_component__ = __webpack_require__("./src/app/customer/customer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__update_customer_update_customer_component__ = __webpack_require__("./src/app/update-customer/update-customer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__update_company_update_company_component__ = __webpack_require__("./src/app/update-company/update-company.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -125,12 +129,14 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_10__menu_menu_component__["a" /* MenuComponent */],
                 __WEBPACK_IMPORTED_MODULE_11__main_main_component__["a" /* MainComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__footer_footer_component__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__create_coupns_create_coupns_component__["a" /* CreateCoupnsComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__coupns_coupns_component__["a" /* CoupnsComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__updatecoupn_updatecoupn_component__["a" /* UpdatecoupnComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__get_by_end_date_get_by_end_date_component__["a" /* GetByEndDateComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__get_by_price_get_by_price_component__["a" /* GetByPriceComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__get_by_type_get_by_type_component__["a" /* GetByTypeComponent */]
+                __WEBPACK_IMPORTED_MODULE_14__create_company_create_company_component__["a" /* CreateCompanyComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__create_customer_create_customer_component__["a" /* CreateCustomerComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__companies_companies_component__["a" /* CompaniesComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__customers_customers_component__["a" /* CustomersComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__company_company_component__["a" /* CompanyComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__customer_customer_component__["a" /* CustomerComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__update_customer_update_customer_component__["a" /* UpdateCustomerComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__update_company_update_company_component__["a" /* UpdateCompanyComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -139,7 +145,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__routes__["a" /* appRoutes */])
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_15__server_webapi_service__["a" /* WebapiService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_13__server_webapi_service__["a" /* WebapiService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -150,25 +156,25 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ "./src/app/coupns/coupns.component.css":
+/***/ "./src/app/companies/companies.component.css":
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/coupns/coupns.component.html":
+/***/ "./src/app/companies/companies.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<h1>\n  coupons</h1>\n<div class=\"ui middle aligned divided list\">\n  <div class=\"item\" *ngFor=\"let coupon of Coupons\">\n    <div class=\"right floated content\">\n      <div class=\"ui button\" routerLink=\"../Update\" href=\"\" (click)=\"UpdateButton($event,coupon)\">Update</div>\n    </div>\n    <div class=\"right floated content\">\n      <div class=\"ui button\" (click)=\"RemoveButton($event,coupon)\">Remove</div>\n    </div>\n    <div class=\"ui big horizontal divided list\">\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.title}}</div>\n        </div>\n      </div>\n      <!--begin-->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.message}}</div>\n        </div>\n      </div>\n      <!-- end -->\n          <!--begin-->\n          <div class=\"item\">\n              <div class=\"content\">\n                <div class=\"header\"> {{coupon.startDate}}</div>\n              </div>\n            </div>\n            <!-- end -->\n      <!--begin-->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.endDate}}</div>\n        </div>\n      </div>\n      <!-- end -->\n      <!--begin-->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.amount}}</div>\n        </div>\n      </div>\n      <!-- end -->\n      <!--begin-->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.price}}</div>\n        </div>\n      </div>\n      <!-- end -->\n      <!--begin-->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{coupon.type}}</div>\n        </div>\n      </div>\n      <!-- end -->\n\n    </div>\n  </div>\n</div>\n<router-outlet ></router-outlet>"
+module.exports = "\n<h1>\n  Companies</h1>\n<div class=\"ui middle aligned divided list\">\n  <div class=\"item\" *ngFor=\"let company of Companies\">\n    <div class=\"right floated content\">\n      <div class=\"ui button\" routerLink=\"../updateCompany\"  (click)=\"UpdateButton($event,company)\">Update</div>\n    </div>\n    <div class=\"right floated content\">\n      <div class=\"ui button\" (click)=\"RemoveButton($event,company)\">Remove</div>\n    </div>\n    <div class=\"right floated content\">\n      <div class=\"ui button\" routerLink=\"../Company\"  (click)=\"detailsButton($event,company)\">details</div>\n    </div>\n    <div class=\"ui big horizontal divided list\">\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{company.compName}}</div>\n        </div>\n      </div>\n      <!--begin-->\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{company.email}}</div>\n        </div>\n      </div>\n      <!-- end -->\n\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
-/***/ "./src/app/coupns/coupns.component.ts":
+/***/ "./src/app/companies/companies.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoupnsComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompaniesComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__server_webapi_service__ = __webpack_require__("./src/app/server/webapi.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -182,70 +188,70 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var CoupnsComponent = (function () {
-    function CoupnsComponent(webapiService) {
+var CompaniesComponent = (function () {
+    function CompaniesComponent(webapiService) {
         this.webapiService = webapiService;
     }
-    CoupnsComponent.prototype.ngOnInit = function () {
+    CompaniesComponent.prototype.ngOnInit = function () {
         this.loadData();
     };
-    CoupnsComponent.prototype.UpdateButton = function (event, coupon) {
+    CompaniesComponent.prototype.UpdateButton = function (event, company) {
         console.log("UpdateButton " + event);
-        console.log("coupon ");
-        console.log(coupon);
-        this.webapiService.changeMessage(coupon);
+        this.webapiService.changeMessage(company);
     };
-    CoupnsComponent.prototype.RemoveButton = function (event, coupon) {
+    CompaniesComponent.prototype.RemoveButton = function (event, company) {
         console.log("RemoveButton " + event);
-        console.log("coupon ");
-        console.log(coupon);
-        this.webapiService.removeCoupoun(coupon).subscribe(function (res) {
+        this.webapiService.removeCompany(company).subscribe(function (res) {
         });
-        //BAD
-        setTimeout(this.loadData(), 1000);
+        this.loadData();
     };
-    CoupnsComponent.prototype.loadData = function () {
+    CompaniesComponent.prototype.detailsButton = function (event, company) {
+        console.log("RemoveButton " + event);
+        console.log("company " + company);
+        this.webapiService.changeMessage(company);
+    };
+    CompaniesComponent.prototype.loadData = function () {
         var _this = this;
         console.log('loadData');
-        this.webapiService.getcoupons().subscribe(function (coupon) {
-            console.log(coupon);
-            _this.Coupons = coupon;
+        this.webapiService.getCompanies().subscribe(function (companies) {
+            console.log(companies);
+            _this.Companies = companies;
         });
     };
-    CoupnsComponent = __decorate([
+    CompaniesComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-coupns',
-            template: __webpack_require__("./src/app/coupns/coupns.component.html"),
-            styles: [__webpack_require__("./src/app/coupns/coupns.component.css")]
+            selector: 'app-companies',
+            template: __webpack_require__("./src/app/companies/companies.component.html"),
+            styles: [__webpack_require__("./src/app/companies/companies.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__server_webapi_service__["a" /* WebapiService */]])
-    ], CoupnsComponent);
-    return CoupnsComponent;
+    ], CompaniesComponent);
+    return CompaniesComponent;
 }());
 
 
 
 /***/ }),
 
-/***/ "./src/app/create-coupns/create-coupns.component.css":
+/***/ "./src/app/company/company.component.css":
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/create-coupns/create-coupns.component.html":
+/***/ "./src/app/company/company.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"ui form\">\r\n    <h4 class=\"ui dividing header\">Coupon Details</h4>\r\n    <div class=\"field\">\r\n        <label>Title</label>\r\n        <div class=\"field\">\r\n            <input type=\"text\" name=\"title\" [(ngModel)]=\"this.Coupon.title\">\r\n        </div>\r\n    </div>\r\n    <div class=\"field\">\r\n        <label>message</label>\r\n        <div class=\"field\">\r\n            <textarea name=\"Coupon[message]\" rows=\"2\" [(ngModel)]=\"this.Coupon.message\"></textarea>\r\n        </div>\r\n    </div>\r\n    <div class=\"field\">\r\n        <div class=\"two fields\">\r\n            <div class=\"field\">\r\n                <label>Price</label>\r\n                <input type=\"number\" name=\"Coupon[price]\" [(ngModel)]=\"this.Coupon.price\">\r\n            </div>\r\n\r\n            <div class=\"field\">\r\n                <label>Amount</label>\r\n                <input type=\"number\" name=\"Coupon[amount]\" [(ngModel)]=\"this.Coupon.amount\">\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"field\">\r\n        <label>Type</label>\r\n        <select class=\"ui fluid search dropdown\" [(ngModel)]=\"this.Coupon.type\" name=\"Coupon[Type]\">\r\n            <option value=\"\">Type</option>\r\n            <option value=\"SPORTS\">SPORTS</option>\r\n            <option value=\"FOOD\">FOOD</option>\r\n            <option value=\"HEALTH\">HEALTH</option>\r\n            <option value=\"RESTURANS\">RESTURANS</option>\r\n            <option value=\"ELECTRICTY\">ELECTRICTY</option>\r\n            <option value=\"CAMPING\">CAMPING</option>\r\n            <option value=\"TRAVELLING\">TRAVELLING</option>\r\n\r\n        </select>\r\n    </div>\r\n    <h4 class=\"ui dividing header\">Date Information</h4>\r\n    <div class=\"fields\">\r\n        <div class=\"six wide field\">\r\n            <label>Start Date</label>\r\n            <div class=\"field\">\r\n                <input type=\"date\" name=\"Coupon[price]\" [(ngModel)]=\"this.Coupon.startDate\">\r\n            </div>\r\n        </div>\r\n        <div class=\"six wide field\">\r\n            <label>End Date</label>\r\n            <input type=\"date\" name=\"Coupon[price]\" [(ngModel)]=\"this.Coupon.endDate\">\r\n        </div>\r\n    </div>\r\n    <div class=\"ui button\" tabindex=\"0\" (click)=\"createCoupon($event)\">Create</div>\r\n</form>"
+module.exports = "<form class=\"ui form\">\n  <h4 class=\"ui dividing header\"> read Company</h4>\n  <div class=\"field\">\n      <label>Company Name</label>\n      <div class=\"field\">\n          <input type=\"text\" name=\"title\"readonly=\"\" [(ngModel)]=\"this.company.compName\">\n      </div>\n  </div>\n  <div class=\"field\">\n    <label>password</label>\n    <div class=\"field\">\n        <input type=\"text\" name=\"password\"readonly=\"\" [(ngModel)]=\"this.company.password\">\n    </div>\n</div>\n<div class=\"field\">\n  <label>email</label>\n  <div class=\"field\">\n      <input type=\"email\"readonly=\"\" name=\"title\" [(ngModel)]=\"this.company.email\">\n  </div>\n</div>\n</form>"
 
 /***/ }),
 
-/***/ "./src/app/create-coupns/create-coupns.component.ts":
+/***/ "./src/app/company/company.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateCoupnsComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__server_webapi_service__ = __webpack_require__("./src/app/server/webapi.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -259,44 +265,302 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var CreateCoupnsComponent = (function () {
-    function CreateCoupnsComponent(webapiService) {
+var CompanyComponent = (function () {
+    function CompanyComponent(webapiService) {
         this.webapiService = webapiService;
     }
-    CreateCoupnsComponent.prototype.ngOnInit = function () {
-        this.resetCreateCoupon();
-    };
-    CreateCoupnsComponent.prototype.createCoupon = function (event) {
-        console.log("RemoveButton " + event);
-        console.log("Coupon ", this.Coupon);
-        this.webapiService.createCoupon(this.Coupon).subscribe(function (res) {
-            console.log(res);
+    CompanyComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.webapiService.currentMessage.subscribe(function (company) {
+            _this.webapiService.getCompanyById(company).subscribe(function (companyByID) {
+                _this.company = companyByID;
+                console.log('companyByID {}', companyByID);
+            });
         });
-        this.resetCreateCoupon();
     };
-    CreateCoupnsComponent.prototype.resetCreateCoupon = function (form) {
-        if (form != null)
-            form.reset();
-        this.Coupon = {
-            title: '',
-            amount: 0,
-            type: '',
-            message: '',
-            price: '',
-            image: '',
-            startDate: new Date(),
-            endDate: new Date()
-        };
-    };
-    CreateCoupnsComponent = __decorate([
+    CompanyComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-create-coupns',
-            template: __webpack_require__("./src/app/create-coupns/create-coupns.component.html"),
-            styles: [__webpack_require__("./src/app/create-coupns/create-coupns.component.css")]
+            selector: 'app-company',
+            template: __webpack_require__("./src/app/company/company.component.html"),
+            styles: [__webpack_require__("./src/app/company/company.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__server_webapi_service__["a" /* WebapiService */]])
-    ], CreateCoupnsComponent);
-    return CreateCoupnsComponent;
+    ], CompanyComponent);
+    return CompanyComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/create-company/create-company.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/create-company/create-company.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<form class=\"ui form\">\n  <h4 class=\"ui dividing header\">Company</h4>\n  <div class=\"field\">\n      <label>Company Name</label>\n      <div class=\"field\">\n          <input type=\"text\" name=\"title\" [(ngModel)]=\"this.Company.compName\">\n      </div>\n  </div>\n  <div class=\"field\">\n    <label>password</label>\n    <div class=\"field\">\n        <input type=\"password\" name=\"title\" [(ngModel)]=\"this.Company.password\">\n    </div>\n</div>\n<div class=\"field\">\n  <label>email</label>\n  <div class=\"field\">\n      <input type=\"email\" name=\"title\" [(ngModel)]=\"this.Company.email\">\n  </div>\n</div>\n\n \n\n  <div class=\"ui button\" tabindex=\"0\" (click)=\"CreateCompany($event)\">Create</div>\n</form>"
+
+/***/ }),
+
+/***/ "./src/app/create-company/create-company.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateCompanyComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__server_webapi_service__ = __webpack_require__("./src/app/server/webapi.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var CreateCompanyComponent = (function () {
+    function CreateCompanyComponent(webapiService) {
+        this.webapiService = webapiService;
+    }
+    CreateCompanyComponent.prototype.ngOnInit = function () {
+        this.resetCompanyCoupon();
+    };
+    CreateCompanyComponent.prototype.CreateCompany = function () {
+        this.webapiService.CreateCompany(this.Company).subscribe(function (res) {
+            console.log(res);
+        });
+        this.resetCompanyCoupon();
+    };
+    CreateCompanyComponent.prototype.resetCompanyCoupon = function (form) {
+        if (form != null)
+            form.reset();
+        this.Company = {
+            compName: '',
+            password: '',
+            email: ''
+        };
+    };
+    CreateCompanyComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-create-company',
+            template: __webpack_require__("./src/app/create-company/create-company.component.html"),
+            styles: [__webpack_require__("./src/app/create-company/create-company.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__server_webapi_service__["a" /* WebapiService */]])
+    ], CreateCompanyComponent);
+    return CreateCompanyComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/create-customer/create-customer.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/create-customer/create-customer.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<form class=\"ui form\">\n  <h4 class=\"ui dividing header\">Customer</h4>\n  <div class=\"field\">\n      <label>Customer Name</label>\n      <div class=\"field\">\n          <input type=\"text\" name=\"title\" [(ngModel)]=\"this.Customer.custName\">\n      </div>\n  </div>\n  <div class=\"field\">\n    <label>password</label>\n    <div class=\"field\">\n        <input type=\"password\" name=\"title\" [(ngModel)]=\"this.Customer.password\">\n    </div>\n</div>\n\n\n \n\n  <div class=\"ui button\" tabindex=\"0\" (click)=\"CreateCustomer($event)\">Create</div>\n</form>"
+
+/***/ }),
+
+/***/ "./src/app/create-customer/create-customer.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateCustomerComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__server_webapi_service__ = __webpack_require__("./src/app/server/webapi.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var CreateCustomerComponent = (function () {
+    function CreateCustomerComponent(webapiService) {
+        this.webapiService = webapiService;
+    }
+    CreateCustomerComponent.prototype.ngOnInit = function () {
+        this.resetCustomerCoupon();
+    };
+    CreateCustomerComponent.prototype.CreateCustomer = function () {
+        this.webapiService.CreateCustomer(this.Customer).subscribe(function (res) {
+            console.log(res);
+        });
+        this.resetCustomerCoupon();
+    };
+    CreateCustomerComponent.prototype.resetCustomerCoupon = function (form) {
+        if (form != null)
+            form.reset();
+        this.Customer = {
+            custName: '',
+            password: ''
+        };
+    };
+    CreateCustomerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-create-customer',
+            template: __webpack_require__("./src/app/create-customer/create-customer.component.html"),
+            styles: [__webpack_require__("./src/app/create-customer/create-customer.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__server_webapi_service__["a" /* WebapiService */]])
+    ], CreateCustomerComponent);
+    return CreateCustomerComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/customer/customer.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/customer/customer.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n<form class=\"ui form\">\n  <h4 class=\"ui dividing header\"> read customer</h4>\n  <div class=\"field\">\n      <label>customer Name</label>\n      <div class=\"field\">\n          <input type=\"text\" name=\"title\"readonly=\"\" [(ngModel)]=\"this.customer.custName\">\n      </div>\n  </div>\n  <div class=\"field\">\n    <label>password</label>\n    <div class=\"field\">\n        <input type=\"text\" name=\"password\"readonly=\"\" [(ngModel)]=\"this.customer.password\">\n    </div>\n</div>\n</form>"
+
+/***/ }),
+
+/***/ "./src/app/customer/customer.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomerComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__server_webapi_service__ = __webpack_require__("./src/app/server/webapi.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var CustomerComponent = (function () {
+    function CustomerComponent(webapiService) {
+        this.webapiService = webapiService;
+    }
+    CustomerComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.webapiService.currentMessage.subscribe(function (customer) {
+            _this.webapiService.getCustomerByID(customer).subscribe(function (customerByID) {
+                _this.customer = customerByID;
+                console.log('customerByID {}', customerByID);
+            });
+        });
+    };
+    CustomerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-customer',
+            template: __webpack_require__("./src/app/customer/customer.component.html"),
+            styles: [__webpack_require__("./src/app/customer/customer.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__server_webapi_service__["a" /* WebapiService */]])
+    ], CustomerComponent);
+    return CustomerComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/customers/customers.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/customers/customers.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n<h1>\n  Customers</h1>\n<div class=\"ui middle aligned divided list\">\n  <div class=\"item\" *ngFor=\"let customer of Customers\">\n    <div class=\"right floated content\">\n      <div class=\"ui button\" routerLink=\"../updateCustomer\"  (click)=\"UpdateButton($event,customer)\">Update</div>\n    </div>\n    <div class=\"right floated content\">\n      <div class=\"ui button\" (click)=\"RemoveButton($event,customer)\">Remove</div>\n    </div>\n    <div class=\"right floated content\">\n      <div class=\"ui button\" routerLink=\"../Customer\"  (click)=\"detailsButton($event,customer)\">details</div>\n    </div>\n    <div class=\"ui big horizontal divided list\">\n      <div class=\"item\">\n        <div class=\"content\">\n          <div class=\"header\"> {{customer.custName}}</div>\n        </div>\n      </div>\n      \n\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/customers/customers.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomersComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__server_webapi_service__ = __webpack_require__("./src/app/server/webapi.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var CustomersComponent = (function () {
+    function CustomersComponent(webapiService) {
+        this.webapiService = webapiService;
+    }
+    CustomersComponent.prototype.ngOnInit = function () {
+        this.loadData();
+    };
+    CustomersComponent.prototype.UpdateButton = function (event, customer) {
+        console.log("UpdateButton " + event);
+        this.webapiService.changeMessage(customer);
+    };
+    CustomersComponent.prototype.RemoveButton = function (event, customer) {
+        console.log("RemoveButton " + event);
+        this.webapiService.removeCustomer(customer).subscribe(function (res) {
+        });
+        this.loadData();
+    };
+    CustomersComponent.prototype.detailsButton = function (event, customer) {
+        console.log("RemoveButton " + event);
+        console.log("customer " + customer);
+        this.webapiService.changeMessage(customer);
+    };
+    CustomersComponent.prototype.loadData = function () {
+        var _this = this;
+        console.log('loadData');
+        this.webapiService.getCustomers().subscribe(function (customers) {
+            console.log(customers);
+            _this.Customers = customers;
+        });
+    };
+    CustomersComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-customers',
+            template: __webpack_require__("./src/app/customers/customers.component.html"),
+            styles: [__webpack_require__("./src/app/customers/customers.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__server_webapi_service__["a" /* WebapiService */]])
+    ], CustomersComponent);
+    return CustomersComponent;
 }());
 
 
@@ -347,189 +611,6 @@ var FooterComponent = (function () {
         __metadata("design:paramtypes", [])
     ], FooterComponent);
     return FooterComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/get-by-end-date/get-by-end-date.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/get-by-end-date/get-by-end-date.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<form class=\"ui form\">\n\n  <h4 class=\"ui dividing header\">Get </h4>\n  <div class=\"six wide field\">\n    <label>End Date</label>\n    <input type=\"date\" name=\"Coupon[price]\" [(ngModel)]=\"this.endDate\">\n  </div>\n  <div class=\"ui button\" tabindex=\"0\" (click)=\"getAll($event)\">GET</div>\n</form>\n\n\n\n\n<div class=\"ui middle aligned divided list\">\n    <div class=\"item\" *ngFor=\"let coupon of Coupons\">\n      <div class=\"ui big horizontal divided list\">\n        <div class=\"item\">\n          <div class=\"content\">\n            <div class=\"header\"> {{coupon.title}}</div>\n          </div>\n        </div>\n        <!--begin-->\n        <div class=\"item\">\n          <div class=\"content\">\n            <div class=\"header\"> {{coupon.message}}</div>\n          </div>\n        </div>\n        <!-- end -->\n            <!--begin-->\n            <div class=\"item\">\n                <div class=\"content\">\n                  <div class=\"header\"> {{coupon.startDate}}</div>\n                </div>\n              </div>\n              <!-- end -->\n        <!--begin-->\n        <div class=\"item\">\n          <div class=\"content\">\n            <div class=\"header\"> {{coupon.endDate}}</div>\n          </div>\n        </div>\n        <!-- end -->\n        <!--begin-->\n        <div class=\"item\">\n          <div class=\"content\">\n            <div class=\"header\"> {{coupon.amount}}</div>\n          </div>\n        </div>\n        <!-- end -->\n        <!--begin-->\n        <div class=\"item\">\n          <div class=\"content\">\n            <div class=\"header\"> {{coupon.price}}</div>\n          </div>\n        </div>\n        <!-- end -->\n        <!--begin-->\n        <div class=\"item\">\n          <div class=\"content\">\n            <div class=\"header\"> {{coupon.type}}</div>\n          </div>\n        </div>\n        <!-- end -->\n  \n      </div>\n    </div>\n  </div>\n"
-
-/***/ }),
-
-/***/ "./src/app/get-by-end-date/get-by-end-date.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GetByEndDateComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__server_webapi_service__ = __webpack_require__("./src/app/server/webapi.service.ts");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var GetByEndDateComponent = (function () {
-    function GetByEndDateComponent(webapiService) {
-        this.webapiService = webapiService;
-    }
-    GetByEndDateComponent.prototype.ngOnInit = function () {
-    };
-    GetByEndDateComponent.prototype.getAll = function (event) {
-        var _this = this;
-        console.log("getAll " + event);
-        this.webapiService.getByEndDate(this.endDate).subscribe(function (coupon) {
-            console.log(coupon);
-            _this.Coupons = coupon;
-        });
-    };
-    GetByEndDateComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-get-by-end-date',
-            template: __webpack_require__("./src/app/get-by-end-date/get-by-end-date.component.html"),
-            styles: [__webpack_require__("./src/app/get-by-end-date/get-by-end-date.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__server_webapi_service__["a" /* WebapiService */]])
-    ], GetByEndDateComponent);
-    return GetByEndDateComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/get-by-price/get-by-price.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/get-by-price/get-by-price.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "\n<form class=\"ui form\">\n\n    <h4 class=\"ui dividing header\">Get </h4>\n    \n    <div class=\"field\">\n        <label>Price</label>\n        <input type=\"number\" name=\"Coupon[price]\" [(ngModel)]=\"this.price\">\n    </div>\n    <div class=\"ui button\" tabindex=\"0\" (click)=\"getAll($event)\">GET</div>\n    </form>\n\n\n\n\n    <div class=\"ui middle aligned divided list\">\n            <div class=\"item\" *ngFor=\"let coupon of Coupons\">\n              <div class=\"ui big horizontal divided list\">\n                <div class=\"item\">\n                  <div class=\"content\">\n                    <div class=\"header\"> {{coupon.title}}</div>\n                  </div>\n                </div>\n                <!--begin-->\n                <div class=\"item\">\n                  <div class=\"content\">\n                    <div class=\"header\"> {{coupon.message}}</div>\n                  </div>\n                </div>\n                <!-- end -->\n                    <!--begin-->\n                    <div class=\"item\">\n                        <div class=\"content\">\n                          <div class=\"header\"> {{coupon.startDate}}</div>\n                        </div>\n                      </div>\n                      <!-- end -->\n                <!--begin-->\n                <div class=\"item\">\n                  <div class=\"content\">\n                    <div class=\"header\"> {{coupon.endDate}}</div>\n                  </div>\n                </div>\n                <!-- end -->\n                <!--begin-->\n                <div class=\"item\">\n                  <div class=\"content\">\n                    <div class=\"header\"> {{coupon.amount}}</div>\n                  </div>\n                </div>\n                <!-- end -->\n                <!--begin-->\n                <div class=\"item\">\n                  <div class=\"content\">\n                    <div class=\"header\"> {{coupon.price}}</div>\n                  </div>\n                </div>\n                <!-- end -->\n                <!--begin-->\n                <div class=\"item\">\n                  <div class=\"content\">\n                    <div class=\"header\"> {{coupon.type}}</div>\n                  </div>\n                </div>\n                <!-- end -->\n          \n              </div>\n            </div>\n          </div>\n    "
-
-/***/ }),
-
-/***/ "./src/app/get-by-price/get-by-price.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GetByPriceComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__server_webapi_service__ = __webpack_require__("./src/app/server/webapi.service.ts");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var GetByPriceComponent = (function () {
-    function GetByPriceComponent(webapiService) {
-        this.webapiService = webapiService;
-    }
-    GetByPriceComponent.prototype.ngOnInit = function () {
-    };
-    GetByPriceComponent.prototype.getAll = function (event) {
-        var _this = this;
-        console.log("getAll " + event);
-        this.webapiService.getMaxPriceFromCopany(this.price).subscribe(function (coupon) {
-            console.log(coupon);
-            _this.Coupons = coupon;
-        });
-    };
-    GetByPriceComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-get-by-price',
-            template: __webpack_require__("./src/app/get-by-price/get-by-price.component.html"),
-            styles: [__webpack_require__("./src/app/get-by-price/get-by-price.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__server_webapi_service__["a" /* WebapiService */]])
-    ], GetByPriceComponent);
-    return GetByPriceComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/get-by-type/get-by-type.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/get-by-type/get-by-type.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "\n<form class=\"ui form\">\n\n    <h4 class=\"ui dividing header\">Get </h4>\n    \n    <div class=\"field\">\n        <label>Type</label>\n        <select class=\"ui fluid search dropdown\" [(ngModel)]=\"this.type\" name=\"Coupon[Type]\">\n            <option value=\"SPORTS\">SPORTS</option>\n            <option value=\"FOOD\">FOOD</option>\n            <option value=\"HEALTH\">HEALTH</option>\n            <option value=\"RESTURANS\">RESTURANS</option>\n            <option value=\"ELECTRICTY\">ELECTRICTY</option>\n            <option value=\"CAMPING\">CAMPING</option>\n            <option value=\"TRAVELLING\">TRAVELLING</option>\n    \n        </select>\n    </div>\n    <div class=\"ui button\" tabindex=\"0\" (click)=\"getAll($event)\">GET</div>\n    </form>\n\n\n\n\n      <div class=\"ui middle aligned divided list\">\n        <div class=\"item\" *ngFor=\"let coupon of Coupons\">\n          <div class=\"ui big horizontal divided list\">\n            <div class=\"item\">\n              <div class=\"content\">\n                <div class=\"header\"> {{coupon.title}}</div>\n              </div>\n            </div>\n            <!--begin-->\n            <div class=\"item\">\n              <div class=\"content\">\n                <div class=\"header\"> {{coupon.message}}</div>\n              </div>\n            </div>\n            <!-- end -->\n                <!--begin-->\n                <div class=\"item\">\n                    <div class=\"content\">\n                      <div class=\"header\"> {{coupon.startDate}}</div>\n                    </div>\n                  </div>\n                  <!-- end -->\n            <!--begin-->\n            <div class=\"item\">\n              <div class=\"content\">\n                <div class=\"header\"> {{coupon.endDate}}</div>\n              </div>\n            </div>\n            <!-- end -->\n            <!--begin-->\n            <div class=\"item\">\n              <div class=\"content\">\n                <div class=\"header\"> {{coupon.amount}}</div>\n              </div>\n            </div>\n            <!-- end -->\n            <!--begin-->\n            <div class=\"item\">\n              <div class=\"content\">\n                <div class=\"header\"> {{coupon.price}}</div>\n              </div>\n            </div>\n            <!-- end -->\n            <!--begin-->\n            <div class=\"item\">\n              <div class=\"content\">\n                <div class=\"header\"> {{coupon.type}}</div>\n              </div>\n            </div>\n            <!-- end -->\n      \n          </div>\n        </div>\n      </div>\n"
-
-/***/ }),
-
-/***/ "./src/app/get-by-type/get-by-type.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GetByTypeComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__server_webapi_service__ = __webpack_require__("./src/app/server/webapi.service.ts");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var GetByTypeComponent = (function () {
-    function GetByTypeComponent(webapiService) {
-        this.webapiService = webapiService;
-    }
-    GetByTypeComponent.prototype.ngOnInit = function () {
-    };
-    GetByTypeComponent.prototype.getAll = function (event) {
-        var _this = this;
-        console.log("getAll " + event);
-        this.webapiService.getByType(this.type).subscribe(function (coupon) {
-            console.log(coupon);
-            _this.Coupons = coupon;
-        });
-    };
-    GetByTypeComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-get-by-type',
-            template: __webpack_require__("./src/app/get-by-type/get-by-type.component.html"),
-            styles: [__webpack_require__("./src/app/get-by-type/get-by-type.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__server_webapi_service__["a" /* WebapiService */]])
-    ], GetByTypeComponent);
-    return GetByTypeComponent;
 }());
 
 
@@ -646,7 +727,7 @@ module.exports = "/* .side {\r\n    -ms-flex: 30%; \r\n     flex: 30%;\r\n    ba
 /***/ "./src/app/menu/menu.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui card\">\n    <div class=\"image\">\n      <img src=\"assets\\social_network-3-256.png\">\n    </div>\n    <div class=\"content\">\n      <span class=\"header\">Company User</span>\n      <div class=\"meta\">\n        <span class=\"date\">{{Company.compName}}</span>\n      </div>\n      <div class=\"description\">\n          {{Company.email}}\n      </div>\n    </div>\n  </div>"
+module.exports = "<div class=\"ui card\">\n    <div class=\"image\">\n      <img src=\"assets\\httpswww.iconfinder.comicons158-256.png\">\n    </div>\n    <div class=\"content\">\n      <span class=\"header\">welcome </span>\n      <div class=\"meta\">\n        <span class=\"date\">administrator</span>\n      </div>\n      <div class=\"description\">\n      </div>\n    </div>\n  </div>"
 
 /***/ }),
 
@@ -673,12 +754,6 @@ var MenuComponent = (function () {
         this.webapiService = webapiService;
     }
     MenuComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.webapiService.getCompany().subscribe(function (company) {
-            console.log(company);
-            _this.Company = company;
-            // coupon.map(x => x.price.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));
-        });
     };
     MenuComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -705,7 +780,7 @@ module.exports = "/* Style the top navigation bar */\r\n.navbar {\r\n    overflo
 /***/ "./src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"navbar\">\n  <a routerLink=\"Company/createCoupns\" routerLinkActive='active'>Create Coupns</a>\n  <a routerLink=\"Company/getByType\" routerLinkActive='active' >get By Type</a>\n  <a routerLink=\"Company/getByPrice\" routerLinkActive='active' >get By Price</a>\n  <a routerLink=\"Company/getByEndDate\" routerLinkActive='active'>get By End Date</a>\n  <a routerLink=\"Company/coupns\" routerLinkActive='active'>Coupns</a>\n  <a href=\"#\" class=\"right\" (click)=\"logOut($event)\">log Out</a>\n</div>"
+module.exports = "\n<div class=\"navbar\">\n  <a routerLink=\"Administrator/createCompany\" routerLinkActive='active'>Create Company</a>\n  <a routerLink=\"Administrator/createCustomer\" routerLinkActive='active'>Create Customer</a>\n  <a routerLink=\"Administrator/Companies\" routerLinkActive='active'>Companies</a>\n  <a routerLink=\"Administrator/Customers\" routerLinkActive='active'>Customers</a>\n  <a href=\"#\" class=\"right\" (click)=\"logOut($event)\">log Out</a>\n</div>"
 
 /***/ }),
 
@@ -760,12 +835,16 @@ var NavbarComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return appRoutes; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__main_main_component__ = __webpack_require__("./src/app/main/main.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__create_coupns_create_coupns_component__ = __webpack_require__("./src/app/create-coupns/create-coupns.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__coupns_coupns_component__ = __webpack_require__("./src/app/coupns/coupns.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__updatecoupn_updatecoupn_component__ = __webpack_require__("./src/app/updatecoupn/updatecoupn.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__get_by_type_get_by_type_component__ = __webpack_require__("./src/app/get-by-type/get-by-type.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__get_by_price_get_by_price_component__ = __webpack_require__("./src/app/get-by-price/get-by-price.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__get_by_end_date_get_by_end_date_component__ = __webpack_require__("./src/app/get-by-end-date/get-by-end-date.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__create_company_create_company_component__ = __webpack_require__("./src/app/create-company/create-company.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__companies_companies_component__ = __webpack_require__("./src/app/companies/companies.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__create_customer_create_customer_component__ = __webpack_require__("./src/app/create-customer/create-customer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__customers_customers_component__ = __webpack_require__("./src/app/customers/customers.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__update_company_update_company_component__ = __webpack_require__("./src/app/update-company/update-company.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__company_company_component__ = __webpack_require__("./src/app/company/company.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__customer_customer_component__ = __webpack_require__("./src/app/customer/customer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__update_customer_update_customer_component__ = __webpack_require__("./src/app/update-customer/update-customer.component.ts");
+
+
 
 
 
@@ -775,43 +854,47 @@ var NavbarComponent = (function () {
 
 var appRoutes = [
     {
-        path: 'Company',
+        path: 'Administrator',
         children: [
             {
                 path: 'home',
                 component: __WEBPACK_IMPORTED_MODULE_0__main_main_component__["a" /* MainComponent */]
             },
             {
-                path: 'createCoupns',
-                component: __WEBPACK_IMPORTED_MODULE_1__create_coupns_create_coupns_component__["a" /* CreateCoupnsComponent */]
+                path: 'createCompany',
+                component: __WEBPACK_IMPORTED_MODULE_1__create_company_create_company_component__["a" /* CreateCompanyComponent */]
             },
             {
-                path: 'getByType',
-                component: __WEBPACK_IMPORTED_MODULE_4__get_by_type_get_by_type_component__["a" /* GetByTypeComponent */]
+                path: 'updateCompany',
+                component: __WEBPACK_IMPORTED_MODULE_5__update_company_update_company_component__["a" /* UpdateCompanyComponent */]
             },
             {
-                path: 'coupns',
-                component: __WEBPACK_IMPORTED_MODULE_2__coupns_coupns_component__["a" /* CoupnsComponent */]
+                path: 'Company',
+                component: __WEBPACK_IMPORTED_MODULE_6__company_company_component__["a" /* CompanyComponent */]
             },
             {
-                path: '',
-                component: __WEBPACK_IMPORTED_MODULE_0__main_main_component__["a" /* MainComponent */]
+                path: 'Companies',
+                component: __WEBPACK_IMPORTED_MODULE_2__companies_companies_component__["a" /* CompaniesComponent */]
             },
             {
-                path: 'Update',
-                component: __WEBPACK_IMPORTED_MODULE_3__updatecoupn_updatecoupn_component__["a" /* UpdatecoupnComponent */]
+                path: 'createCustomer',
+                component: __WEBPACK_IMPORTED_MODULE_3__create_customer_create_customer_component__["a" /* CreateCustomerComponent */]
             },
             {
-                path: 'getByPrice',
-                component: __WEBPACK_IMPORTED_MODULE_5__get_by_price_get_by_price_component__["a" /* GetByPriceComponent */]
+                path: 'updateCustomer',
+                component: __WEBPACK_IMPORTED_MODULE_8__update_customer_update_customer_component__["a" /* UpdateCustomerComponent */]
             },
             {
-                path: 'getByEndDate',
-                component: __WEBPACK_IMPORTED_MODULE_6__get_by_end_date_get_by_end_date_component__["a" /* GetByEndDateComponent */]
+                path: 'Customers',
+                component: __WEBPACK_IMPORTED_MODULE_4__customers_customers_component__["a" /* CustomersComponent */]
+            },
+            {
+                path: 'Customer',
+                component: __WEBPACK_IMPORTED_MODULE_7__customer_customer_component__["a" /* CustomerComponent */]
             }
         ]
     }, {
-        path: '', redirectTo: '/Company', pathMatch: 'full'
+        path: '', redirectTo: '/Administrator', pathMatch: 'full'
     }
 ];
 
@@ -840,11 +923,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-// import { HttpClient, HttpHeaders } from '@angular/common/http';
-// import { Response } from "@angular/http";
-// import { Observable } from 'rxjs';
 var WebapiService = (function () {
-    // constructor(private http: HttpClient) { 
     function WebapiService(http) {
         this.http = http;
         this.rootUrl = 'http://localhost:8080/';
@@ -852,12 +931,6 @@ var WebapiService = (function () {
         this.currentMessage = this.messageSource.asObservable();
         console.log('webAPI run ....');
     }
-    // getMaxPriceFromCopany(MaxPrice){
-    //   return  this.http.get(this.rootUrl+'api/companyres/less?MaxPrice='+MaxPrice);
-    //  }
-    // getPost() {
-    //   return this.http.get('https://jsonplaceholder.typicode.com/posts').map(res => res.json());
-    // }
     WebapiService.prototype.getcoupons = function () {
         return this.http.get(this.rootUrl + 'api/companyres/getcoupons').map(function (res) { return res.json(); });
     };
@@ -880,14 +953,40 @@ var WebapiService = (function () {
         return this.http.post(this.rootUrl + 'api/logout', null).map(function (res) { return res.json(); });
     };
     WebapiService.prototype.removeCoupoun = function (Coupon) {
-        console.log('removeCoupoun');
-        console.log(Coupon);
         return this.http.post(this.rootUrl + 'api/companyres/removeCoupoun', Coupon).map(function (res) { return res.json(); });
     };
     WebapiService.prototype.updateCoupon = function (Coupon) {
-        console.log('removeCoupoun');
-        console.log(Coupon);
         return this.http.put(this.rootUrl + 'api/companyres/updateCoupon', Coupon).map(function (res) { return res.json(); });
+    };
+    WebapiService.prototype.CreateCompany = function (Company) {
+        return this.http.post(this.rootUrl + 'api/administratorRes/createCompany', Company).map(function (res) { return res.json(); });
+    };
+    WebapiService.prototype.CreateCustomer = function (Customer) {
+        return this.http.post(this.rootUrl + 'api/administratorRes/createCustomrer', Customer).map(function (res) { return res.json(); });
+    };
+    WebapiService.prototype.getCompanies = function () {
+        return this.http.get(this.rootUrl + 'api/administratorRes/getAllCompanys').map(function (res) { return res.json(); });
+    };
+    WebapiService.prototype.getCustomers = function () {
+        return this.http.get(this.rootUrl + 'api/administratorRes/getAllCustomrers').map(function (res) { return res.json(); });
+    };
+    WebapiService.prototype.getCompanyById = function (Id) {
+        return this.http.get(this.rootUrl + 'api/administratorRes/Company?companyId=' + Id.id).map(function (res) { return res.json(); });
+    };
+    WebapiService.prototype.getCustomerByID = function (Id) {
+        return this.http.get(this.rootUrl + 'api/administratorRes/Customrer?customrerId=' + Id.id).map(function (res) { return res.json(); });
+    };
+    WebapiService.prototype.removeCompany = function (Company) {
+        return this.http.post(this.rootUrl + 'api/administratorRes/removeCompany', Company).map(function (res) { return res.json(); });
+    };
+    WebapiService.prototype.removeCustomer = function (Customer) {
+        return this.http.post(this.rootUrl + 'api/administratorRes/removeCustomrer', Customer).map(function (res) { return res.json(); });
+    };
+    WebapiService.prototype.updateCompany = function (Company) {
+        return this.http.put(this.rootUrl + 'api/administratorRes/updateCompany', Company).map(function (res) { return res.json(); });
+    };
+    WebapiService.prototype.updateCustomer = function (Customer) {
+        return this.http.put(this.rootUrl + 'api/administratorRes/updateCustomrer', Customer).map(function (res) { return res.json(); });
     };
     WebapiService.prototype.changeMessage = function (message) {
         this.messageSource.next(message);
@@ -903,25 +1002,25 @@ var WebapiService = (function () {
 
 /***/ }),
 
-/***/ "./src/app/updatecoupn/updatecoupn.component.css":
+/***/ "./src/app/update-company/update-company.component.css":
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/updatecoupn/updatecoupn.component.html":
+/***/ "./src/app/update-company/update-company.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"ui form\">\n  <h4 class=\"ui dividing header\">Update Coupon</h4>\n  <div class=\"field\">\n      <div class=\"two fields\">\n          <div class=\"field\">\n              <label>Price</label>\n              <input type=\"number\" name=\"Coupon[amount]\" [(ngModel)]=\"this.coupon.price\">\n          </div>\n      </div>\n  </div>\n    <h4 class=\"ui dividing header\">Date Information</h4>\n  <div class=\"fields\">\n  \n      <div class=\"six wide field\">\n          <label>End Date</label>\n          <input type=\"date\" name=\"Coupon[price]\" [(ngModel)]=\"this.coupon.endDate\">\n      </div>\n  </div>\n  <div class=\"ui button\" tabindex=\"0\" (click)=\"UpdateCoupon($event)\">Update</div>\n</form>"
+module.exports = "<form class=\"ui form\">\n  <h4 class=\"ui dividing header\">Update Company</h4>\n  <!-- <div class=\"field\">\n      <label>Company Name</label>\n      <div class=\"field\">\n          <input type=\"text\" name=\"title\" [(ngModel)]=\"this.company.compName\">\n      </div>\n  </div> -->\n  <div class=\"field\">\n    <label>password</label>\n    <div class=\"field\">\n        <input type=\"text\" name=\"password\" [(ngModel)]=\"this.company.password\">\n    </div>\n</div>\n<div class=\"field\">\n  <label>email</label>\n  <div class=\"field\">\n      <input type=\"email\" name=\"title\" [(ngModel)]=\"this.company.email\">\n  </div>\n</div>\n  <div class=\"ui button\" tabindex=\"0\" (click)=\"UpdateButton($event)\">Update</div>\n</form>"
 
 /***/ }),
 
-/***/ "./src/app/updatecoupn/updatecoupn.component.ts":
+/***/ "./src/app/update-company/update-company.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UpdatecoupnComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UpdateCompanyComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__server_webapi_service__ = __webpack_require__("./src/app/server/webapi.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -935,33 +1034,98 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var UpdatecoupnComponent = (function () {
-    function UpdatecoupnComponent(webapiService) {
+var UpdateCompanyComponent = (function () {
+    function UpdateCompanyComponent(webapiService) {
         this.webapiService = webapiService;
     }
-    UpdatecoupnComponent.prototype.ngOnInit = function () {
+    UpdateCompanyComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.webapiService.currentMessage.subscribe(function (coupon) { return _this.coupon = coupon; });
-        console.log("coupon UpdatecoupnComponent ");
-        console.log(this.coupon);
+        this.webapiService.currentMessage.subscribe(function (company) { return _this.company = company; });
+        console.log("company Update");
+        console.log(this.company);
     };
-    UpdatecoupnComponent.prototype.UpdateCoupon = function () {
+    UpdateCompanyComponent.prototype.UpdateButton = function () {
         var _this = this;
-        console.log("UpdateCoupon");
-        console.log(this.coupon);
-        this.webapiService.updateCoupon(this.coupon).subscribe(function (coupon) {
-            console.log(_this.coupon);
+        console.log("UpdateButton");
+        console.log(this.company);
+        this.webapiService.updateCompany(this.company).subscribe(function (company) {
+            console.log(_this.company);
         });
     };
-    UpdatecoupnComponent = __decorate([
+    UpdateCompanyComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-updatecoupn',
-            template: __webpack_require__("./src/app/updatecoupn/updatecoupn.component.html"),
-            styles: [__webpack_require__("./src/app/updatecoupn/updatecoupn.component.css")]
+            selector: 'app-update-company',
+            template: __webpack_require__("./src/app/update-company/update-company.component.html"),
+            styles: [__webpack_require__("./src/app/update-company/update-company.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__server_webapi_service__["a" /* WebapiService */]])
-    ], UpdatecoupnComponent);
-    return UpdatecoupnComponent;
+    ], UpdateCompanyComponent);
+    return UpdateCompanyComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/update-customer/update-customer.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/update-customer/update-customer.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n<form class=\"ui form\">\n  <h4 class=\"ui dividing header\">Update Customer</h4>\n\n  <div class=\"field\">\n    <label>password</label>\n    <div class=\"field\">\n        <input type=\"text\" name=\"password\" [(ngModel)]=\"this.customer.password\">\n    </div>\n</div>\n  <div class=\"ui button\" tabindex=\"0\" (click)=\"UpdateButton($event)\">Update</div>\n</form>"
+
+/***/ }),
+
+/***/ "./src/app/update-customer/update-customer.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UpdateCustomerComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__server_webapi_service__ = __webpack_require__("./src/app/server/webapi.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var UpdateCustomerComponent = (function () {
+    function UpdateCustomerComponent(webapiService) {
+        this.webapiService = webapiService;
+    }
+    UpdateCustomerComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.webapiService.currentMessage.subscribe(function (customer) { return _this.customer = customer; });
+        console.log("customer Update");
+        console.log(this.customer);
+    };
+    UpdateCustomerComponent.prototype.UpdateButton = function () {
+        var _this = this;
+        console.log("UpdateButton");
+        console.log(this.customer);
+        this.webapiService.updateCustomer(this.customer).subscribe(function (customer) {
+            console.log(_this.customer);
+        });
+    };
+    UpdateCustomerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-update-customer',
+            template: __webpack_require__("./src/app/update-customer/update-customer.component.html"),
+            styles: [__webpack_require__("./src/app/update-customer/update-customer.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__server_webapi_service__["a" /* WebapiService */]])
+    ], UpdateCustomerComponent);
+    return UpdateCustomerComponent;
 }());
 
 

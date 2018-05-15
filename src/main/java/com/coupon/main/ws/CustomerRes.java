@@ -37,12 +37,12 @@ public class CustomerRes {
 	@SuppressWarnings("unused")
 	private CustomerFacade getFacade(HttpServletRequest request) throws SystemExceptionCoupoun {
 
-		CouponClientFacade couponClientFacade = customerFacade.login("cust", "1111");
-		return (CustomerFacade) couponClientFacade;
-//		System.out.println(request.getSession().getAttribute("facade"));
-//		CouponClientFacade facade = (CouponClientFacade)
-//		 request.getSession().getAttribute("facade");
-//		return (CustomerFacade)facade;
+//		CouponClientFacade couponClientFacade = customerFacade.login("cust", "1111");
+//		return (CustomerFacade) couponClientFacade;
+		System.out.println(request.getSession().getAttribute("facade"));
+		CouponClientFacade facade = (CouponClientFacade)
+		 request.getSession().getAttribute("facade");
+		return (CustomerFacade)facade;
 
 	}
 
